@@ -28,7 +28,7 @@ CREATE TABLE `additions` (
   `ADD_PRICE` double(5,2) NOT NULL,
   PRIMARY KEY (`ID_ADD`),
   UNIQUE KEY `ID_ADD` (`ID_ADD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `orders` (
   `ID_ADDITIONS` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`ID_ORDERS`),
   UNIQUE KEY `ID_ORDERS` (`ID_ORDERS`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +87,7 @@ CREATE TABLE `products` (
   `IMAGE` varchar(420) NOT NULL,
   PRIMARY KEY (`ID_PROD`),
   UNIQUE KEY `ID_PROD` (`ID_PROD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,9 +114,10 @@ CREATE TABLE `users` (
   `EMAIL` varchar(254) DEFAULT NULL,
   `USER_TYPE` tinyint(3) unsigned NOT NULL,
   `ADDRESS` varchar(500) NOT NULL,
+  `POINTS` smallint unsigned NOT NULL,
   PRIMARY KEY (`ID_USER`),
   UNIQUE KEY `ID_USER` (`ID_USER`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
