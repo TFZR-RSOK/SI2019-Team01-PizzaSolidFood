@@ -139,3 +139,40 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2019-03-21 16:30:41
+
+
+INSERT INTO products (PROD_NAME, PROD_PRICE, PROD_SIZE, PROD_DESCRIPTION, IMAGE)
+VALUES ('Napoletana','12.35','100','mozzarella cheese, baked ham, mushroom, artichoke and tomato and pizza pugliese, prepared with tomato, mozzarella and onions','image01');
+
+INSERT INTO products (PROD_NAME, PROD_PRICE, PROD_SIZE, PROD_DESCRIPTION, IMAGE)
+VALUES ('Margherita','15.99','100','San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil','image02');
+
+INSERT INTO products (PROD_NAME, PROD_PRICE, PROD_SIZE, PROD_DESCRIPTION, IMAGE)
+VALUES ('Quattro stagioni','20.99','100','artichokes, tomatoes or basil, mushrooms and ham or prosciutto, or olives','image03');
+
+INSERT INTO users (USER_NAME, USER_LASTNAME, TOKEN, EMAIL, USER_TYPE, ADDRESS, POINTS)
+VALUES ('Elijah','Agbabah','token','ilijah.agbabah@tfzr.rs','2','Jovana Popovica 29','69');
+
+INSERT INTO users (USER_NAME, USER_LASTNAME, TOKEN, EMAIL, USER_TYPE, ADDRESS, POINTS)
+VALUES ('Nikolah','Turudijah','token','nikolah.turudijah@tfzr.rs','1','dorm','911');
+
+INSERT INTO users (USER_NAME, USER_LASTNAME, TOKEN, EMAIL, USER_TYPE, ADDRESS, POINTS)
+VALUES ('Mihalh','Kristianh','token','mihalah.kristianh@tfzr.rs','0','across the street of faculty','0');
+
+INSERT INTO additions (ADD_NAME, ADD_PRICE)
+VALUES ('Bacon','0.50');
+
+INSERT INTO additions (ADD_NAME, ADD_PRICE)
+VALUES ('Cheese','0.25');
+
+INSERT INTO additions (ADD_NAME, ADD_PRICE)
+VALUES ('Mushroom','0.75');
+
+INSERT INTO orders (ID_USERS, ID_PRODUCTS, QUANTITY, ORDER_PRICE, DATE_TIME, DELIVERY_TYPE, PAYMENT, ID_ADDITIONS)
+VALUES ('1','1','2','100.00','2019-08-12 12:00:00','Bex','paypal','1');
+
+INSERT INTO orders (ID_USERS, ID_PRODUCTS, QUANTITY, ORDER_PRICE, DATE_TIME, DELIVERY_TYPE, PAYMENT, ID_ADDITIONS)
+VALUES ('2','2','3','120.00','2019-06-15 14:30:00','Bex','cash on delivery','3');
+
+INSERT INTO orders (ID_USERS, ID_PRODUCTS, QUANTITY, ORDER_PRICE, DATE_TIME, DELIVERY_TYPE, PAYMENT, ID_ADDITIONS)
+VALUES ('3','3','1','50.00','2020-01-01 1:00:00','on foot','cash','2');
