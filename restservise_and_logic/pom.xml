@@ -61,7 +61,7 @@
             <version>2.1.2.RELEASE</version>
         </dependency>
 
-        <!-- https://github.com/utils-path/JsonPath -->
+        <!-- https://github.com/json-path/JsonPath -->
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>

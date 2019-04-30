@@ -3,9 +3,11 @@ package com.psf.psfrest.controllers;
 
 import com.psf.psfrest.utils.Utils;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.security.Principal;
@@ -13,23 +15,23 @@ import java.security.Principal;
 @RestController
 public class Auth {
 
-    @RequestMapping("/hello")
-    public String authLogout() {
-        return "hello";
-    }
+    @Autowired
+    private Utils utils;
 
-
-    @GetMapping("/auth/user")
-    public Principal userToken(Principal p) throws IOException {
+    @GetMapping("/auth/login")
+    public Principal loginUser(Principal p) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonString = mapper.writeValueAsString(p);
 
-        Utils utils = new Utils();
         utils.getUserCredentials(jsonString);
+        return  p;
+    }
 
-
-        return p;
+    @RequestMapping("/auth/logout")
+    public void logoutUser(String token) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getForObject("https://accounts.google.com/o/oauth2/revoke?token={token}",String.class, token);
     }
 
 }
