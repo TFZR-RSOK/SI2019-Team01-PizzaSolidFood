@@ -3,6 +3,7 @@ package com.psf.psfrest.controllers;
 
 import com.psf.psfrest.utils.Utils;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,8 +19,9 @@ public class Auth {
     }
 
 
-    @RequestMapping("/auth/user")
-    public String userToken(Principal p) throws IOException {
+    @GetMapping("/auth/user")
+    public Principal userToken(Principal p) throws IOException {
+
         ObjectMapper mapper = new ObjectMapper();
         String jsonString = mapper.writeValueAsString(p);
 
@@ -27,7 +29,7 @@ public class Auth {
         utils.getUserCredentials(jsonString);
 
 
-        return "!";
+        return p;
     }
 
 }
