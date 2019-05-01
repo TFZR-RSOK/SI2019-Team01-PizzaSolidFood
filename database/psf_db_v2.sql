@@ -1,145 +1,120 @@
--- MySQL dump 10.13  Distrib 5.7.25, for Win64 (x86_64)
---
--- Host: localhost    Database: psf_db
--- ------------------------------------------------------
--- Server version	5.7.21-log
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `additions`
---
+CREATE SCHEMA IF NOT EXISTS `psf_db` DEFAULT CHARACTER SET utf8 ;
+USE `psf_db` ;
 
-DROP TABLE IF EXISTS `additions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `additions` (
-  `ID_ADD` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `ADD_NAME` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ADD_PRICE` double(5,2) NOT NULL,
-  PRIMARY KEY (`ID_ADD`),
-  UNIQUE KEY `ID_ADD` (`ID_ADD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `additions`
---
-
-LOCK TABLES `additions` WRITE;
-/*!40000 ALTER TABLE `additions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `additions` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `orders`
---
-
-DROP TABLE IF EXISTS `orders`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `orders` (
-  `ID_ORDERS` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `ID_USERS` bigint(20) unsigned NOT NULL,
-  `ID_PRODUCTS` bigint(20) unsigned NOT NULL,
-  `QUANTITY` tinyint(3) unsigned NOT NULL,
-  `ORDER_PRICE` double(8,2) NOT NULL,
-  `DATE_TIME` datetime NOT NULL,
-  `DELIVERY_TYPE` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `PAYMENT` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ID_ADDITIONS` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`ID_ORDERS`),
-  UNIQUE KEY `ID_ORDERS` (`ID_ORDERS`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `orders`
---
-
-LOCK TABLES `orders` WRITE;
-/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `products`
---
-
-DROP TABLE IF EXISTS `products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `products` (
-  `ID_PROD` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `PROD_NAME` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `PROD_PRICE` double(7,2) NOT NULL,
-  `PROD_SIZE` tinyint(3) unsigned NOT NULL,
-  `PROD_DESCRIPTION` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `IMAGE` varchar(420) COLLATE utf8mb4_unicode_ci NOT NULL,
+-- -----------------------------------------------------
+-- Table `psf_db`.`products`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `psf_db`.`products` (
+  `ID_PROD` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `PROD_NAME` VARCHAR(100) NOT NULL,
+  `PROD_PRICE` DOUBLE(7,2) NOT NULL,
+  `DISCOUNT_FOR_PREMIUM_USERS` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+  `PROD_SIZE` TINYINT(3) UNSIGNED NOT NULL,
+  `PROD_DESCRIPTION` TEXT NOT NULL,
+  `IMAGE` VARCHAR(420) NOT NULL,
   PRIMARY KEY (`ID_PROD`),
-  UNIQUE KEY `ID_PROD` (`ID_PROD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  UNIQUE INDEX `ID_PROD` (`ID_PROD` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
---
--- Dumping data for table `products`
---
 
-LOCK TABLES `products` WRITE;
-/*!40000 ALTER TABLE `products` DISABLE KEYS */;
-/*!40000 ALTER TABLE `products` ENABLE KEYS */;
-UNLOCK TABLES;
+-- -----------------------------------------------------
+-- Table `psf_db`.`additions`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `psf_db`.`additions` (
+  `ID_ADD` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ADD_NAME` VARCHAR(100) NOT NULL,
+  `ADD_PRICE` DOUBLE(5,2) NOT NULL,
+  `products_ID_PROD` BIGINT(20) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID_ADD`, `products_ID_PROD`),
+  UNIQUE INDEX `ID_ADD` (`ID_ADD` ASC),
+  INDEX `fk_additions_products1_idx` (`products_ID_PROD` ASC),
+  CONSTRAINT `fk_additions_products1`
+    FOREIGN KEY (`products_ID_PROD`)
+    REFERENCES `psf_db`.`products` (`ID_PROD`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
---
--- Table structure for table `users`
---
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `USER_NAME` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `USER_LASTNAME` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ID_USER` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `EMAIL` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `USER_TYPE` tinyint(3) unsigned NOT NULL,
-  `ADDRESS` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `POINTS` smallint(5) unsigned NOT NULL,
-  `MONTLY_ORDERS` smallint(5) unsigned DEFAULT NULL,
+-- -----------------------------------------------------
+-- Table `psf_db`.`order`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `psf_db`.`order` (
+  `ID_ORDER` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ORDER_PRICE` DOUBLE(8,2) NOT NULL,
+  `DATE_TIME` DATETIME NOT NULL,
+  `DELIVERY_TYPE` VARCHAR(250) NOT NULL,
+  `PAYMENT` VARCHAR(250) NOT NULL,
+  `products_ID_PROD` BIGINT(20) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ID_ORDER`, `products_ID_PROD`),
+  UNIQUE INDEX `ID_ORDER` (`ID_ORDER` ASC),
+  INDEX `fk_order_products1_idx` (`products_ID_PROD` ASC),
+  CONSTRAINT `fk_order_products1`
+    FOREIGN KEY (`products_ID_PROD`)
+    REFERENCES `psf_db`.`products` (`ID_PROD`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+
+-- -----------------------------------------------------
+-- Table `psf_db`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `psf_db`.`users` (
+  `USER_NAME` VARCHAR(100) NOT NULL,
+  `USER_LASTNAME` VARCHAR(200) NOT NULL,
+  `ID_USER` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `EMAIL` VARCHAR(254) NOT NULL,
+  `USER_TYPE` TINYINT(3) UNSIGNED NOT NULL,
+  `ADDRESS` VARCHAR(500) NULL DEFAULT NULL,
+  `POINTS` SMALLINT(5) UNSIGNED NOT NULL,
+  `MONTHLY_ORDERS` SMALLINT(5) UNSIGNED NULL DEFAULT NULL,
   PRIMARY KEY (`ID_USER`),
-  UNIQUE KEY `ID_USER` (`ID_USER`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  UNIQUE INDEX `ID_USER` (`ID_USER` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
---
--- Dumping data for table `users`
---
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
+-- -----------------------------------------------------
+-- Table `psf_db`.`orders`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `psf_db`.`orders` (
+  `ID_ORDERS` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `QUANTITY` TINYINT(3) UNSIGNED NOT NULL,
+  `users_ID_USER` BIGINT(20) UNSIGNED NOT NULL,
+  `order_ID_ORDER` BIGINT(20) UNSIGNED NOT NULL,
+  `TOTAL_PRICE` DOUBLE(9,2) NULL,
+  PRIMARY KEY (`ID_ORDERS`, `users_ID_USER`, `order_ID_ORDER`),
+  UNIQUE INDEX `ID_ORDERS` (`ID_ORDERS` ASC),
+  INDEX `fk_orders_users_idx` (`users_ID_USER` ASC),
+  INDEX `fk_orders_order1_idx` (`order_ID_ORDER` ASC),
+  CONSTRAINT `fk_orders_users`
+    FOREIGN KEY (`users_ID_USER`)
+    REFERENCES `psf_db`.`users` (`ID_USER`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_orders_order1`
+    FOREIGN KEY (`order_ID_ORDER`)
+    REFERENCES `psf_db`.`order` (`ID_ORDER`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
---
--- Dumping routines for database 'psf_db'
---
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-04-30 17:38:10
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
