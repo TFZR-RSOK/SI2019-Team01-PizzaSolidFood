@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pizza Solid Food | Gallery</title>
-    <link rel="icon" href="../pizza.png">
+    <link rel="icon" href="icon/pizza.png">
     <link href="../css/all.css" rel="stylesheet">
     <script defer src="js/all.js"></script>
     <link rel="stylesheet" href="css/app.css">
@@ -16,16 +16,16 @@
     <header>
         <div class="container c2r1">
             <div class="title">
-                <img src="../pizza.svg" height="40px" width="40px">
+                <img src="icon/pizza.svg" height="40px" width="40px">
                 <h1>Pizza Solid Food</h1>
             </div>
             <nav>
                 <ul class="" id="#navigation">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li class="active-page"><a href="gallery.html">Gallery</a></li>
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('/menu') }}">Menu</a></li>
+                    <li class="active-page"><a href="{{ url('/gallery') }}">Gallery</a></li>
+                    <li><a href="{{ url('/about-us') }}">About Us</a></li>
+                    <li><a href="{{ url('/contact') }}">Contact</a></li>
                 </ul>
                 <div class="menu-trigger"><i class="fas fa-bars"></i></div>
             </nav>
