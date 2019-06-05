@@ -4,7 +4,7 @@ body {
 
     #title-image {
         width: 100%;
-        height: calc(100vh - 70px);
+        height: 500px;
         position: relative;
 
         .bg-image {
@@ -16,7 +16,6 @@ body {
             width: inherit;
             height: inherit;
             background-image: url(/../img/pexels-photo-724216.jpeg);
-            
             background-position: center;
             background-size: cover;
             background-attachment: fixed;
