@@ -419,6 +419,9 @@ body #grid-start-page #myCanvas {
 
 body header {
   background-color: white;
+  width: 100%;
+  position: fixed;
+  z-index: 10000;
 }
 
 body header .container {

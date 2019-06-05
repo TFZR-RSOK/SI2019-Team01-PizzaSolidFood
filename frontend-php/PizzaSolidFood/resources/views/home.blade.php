@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pizza Solid Food | Home</title>
+    <title>Pizza Solid Food</title>
     <link rel="icon" href="icon/pizza.png">
     <link href="css/all.css" rel="stylesheet">
     <script defer src="js/all.js"></script>
@@ -21,11 +21,11 @@
             </div>
             <nav>
                 <ul>
-                    <li class="active-page"><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/menu') }}">Menu</a></li>
-                    <li><a href="{{ url('/gallery') }}">Gallery</a></li>
-                    <li><a href="{{ url('/about-us') }}">About Us</a></li>
-                    <li><a href="{{ url('/contact') }}">Contact</a></li>
+                    <li class="active-page"><a href="#welcome">Home</a></li>
+                    <li><a href="#menu-content">Menu</a></li>
+                    <li><a href="#gallery-content">Gallery</a></li>
+                    <li><a href="#our-story">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="menu-trigger"><i class="fas fa-bars"></i></div>
             </nav>
