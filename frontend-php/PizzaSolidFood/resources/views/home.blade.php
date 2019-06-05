@@ -86,6 +86,140 @@
             </div>
         </div>
     </section>
+    <section id="menu-content">
+        <div class="bg-image"></div>
+        <div class="mask"></div>
+        <div class="container">
+            <div class="title">
+                <h2>MENU</h2>    
+            </div>
+            <div class="menu">
+                <article>
+                    <img src="../img/menu/1.jpg" alt="pizza image">
+                    <h2>Quattro Stagioni</h2>
+                    <p>tomato sauce <br> mozzarella <br> ham <br> black olives <br> mushrooms <br> artichoke peas <br> salami <br> eggs</p>
+                    <input type="button" value="Order">
+                </article>
+                <article>
+                    <img src="../img/menu/2.jpg" alt="pizza image">
+                    <h2>Margherita</h2>
+                    <p>sliced buffalo <br> mozzarella from Campania<br> basil <br> extra virgin <br> olive oil </p>
+                    <input type="button" value="Order">
+                </article>
+                <article>
+                    <img src="../img/menu/3.jpg" alt="pizza image">
+                    <h2>Hawaii</h2>
+                    <p>ham <br> pineapple </p>
+                    <input type="button" value="Order">
+                </article>
+                <article>
+                    <img src="../img/menu/4.jpg" alt="pizza image">
+                    <h2>Garlic Fingers</h2>
+                    <p>melted butter <br> garlic <br> bacon </p>
+                    <input type="button" value="Order">
+                </article>
+                <article>
+                    <img src="../img/menu/5.jpg" alt="pizza image">
+                    <h2>Meat Feast</h2>
+                    <p>tomato sauce <br> mozzarella <br> minced meat <br> Maltese sausage <br> other meat </p>
+                    <input type="button" value="Order">
+                </article>
+                <article>
+                    <img src="../img/menu/6.jpg" alt="pizza image">
+                    <h2>Peperoni</h2>
+                    <p>tomato sauce <br> mozzarella <br> peperoni </p>
+                    <input type="button" value="Order">
+                </article>
+            </div>
+        </div>
+    </section>
+    <section id="gallery-content">
+        <div class="container">
+            <div class="title">
+                <h2>Gallery</h2>
+            </div>
+            <div class="gallery">
+                <div class="image" id="image1">
+
+                </div>
+                <div class="image" id="image2">
+
+                </div>
+                <div class="image" id="image3">
+
+                </div>
+                <div class="image" id="image4">
+
+                </div>
+                <div class="image" id="image5">
+
+                </div>
+                <div class="image" id="image6">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="our-story">
+        <div class="container">
+            <div class="content">
+                <div class="our-story">
+                    <h2>Our Story</h2>
+                    <p>Italian cuisine restaurant Pizza Solid Food is located in the heart of Belgrade, in Dorćol district, the old city neighborhood known for its multicultural atmosphere. Restaurant owner himself has been actively engaged in decorating the restaurant interior and the smallest details were taken into account, wrought iron wine cellar, painted walls, a small gallery with a few tables, discreet home lighting lamps, comfortable chairs, so your stay would be as pleasant as possible. Restaurant terrace offers all possibilities for a pleasant stay and relaxation during and after the working day, and refreshments to all those who have decided to spend the day sightseeing Belgrade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <div class="bg-image"></div>
+        <div class="mask"></div>
+        <div class="container">
+            <div class="content">
+                <div class="about-us">
+                    <h2>About</h2>
+                    <p>It's difficult to tell the story of Dorćol that would be totally acceptable and concievable, but we will try our best to bring you closer to rich history, spirit and ambience of this area, and Belgrade as well. Although without set borders, it is considered that Dorćol covers the northern part and the lower town of Kalemegdan, and the area between the streets of kneza Mihaila and the Danube River. The name of the neighborhood comes from Turkish words dört (four) and yol (road), literally meaning "four roads" or colloquially "intersection (of four roads)", "crossroads". These were the roads to Istanbul, Vidin, Sever, and probably Dubrovnik. During the Turkish occupation of Belgrade, Dorćol was a well known trading centre, with many markets and traders of different nationalities. Also, it was a center of Belgrade's Jewish community, remnant of which is the modern Jevrejska ("Jewish") street in Dorćol. After Belgrade became a capital of independent Serbia, Dorćol kept its multinational character for a long time. Over time the old low houses and narrow streets were changed into modern buildings. Still, some parts, though vanishing one by one, resemble the old look. Dorćol is a location of some of the oldest city buildings. The oldest surviving private house in downtown Belgrade that is still used as a residence is located in the Dorćol district</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="bg-image"></div>
+        <div class="mask"></div>
+        <div class="title">
+            <div class="container">
+                <h2>Contact</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact-content">
+                <div class="text">
+                    <h2>We'd love to hear from you</h2>
+                    <p>While we're good with smoke signals, there are simpler ways for us to get in touch and answer your questions. To get in touch with the Pizza Solid Food team simply fill out the contact form. Alternatively you can telephone us on 02 9251 5600 or email us at restaurant@psf.com </p>
+                </div>
+                <form action="#">
+                    <input type="text" placeholder="E-mail address">
+                    <br>
+                    <input type="text" placeholder="Name">
+                    <br>
+                    <input type="text" placeholder="Subject">
+                    <br>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                    <br>
+                    <input type="button" value="Submit">
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section id="our-location">
+        <div class="title">
+            <div class="container">
+                <h2>Our Location</h2>
+            </div>
+        </div>
+        <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=zrenjanin&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.emojilib.com">emojilib.com</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div>
+    </section>
     <footer>
         <div class="container">
             <div class="content">
