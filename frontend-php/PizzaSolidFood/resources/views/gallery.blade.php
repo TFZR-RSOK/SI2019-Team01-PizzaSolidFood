@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pizza Solid Food | Gallery</title>
     <link rel="icon" href="icon/pizza.png">
-    <link href="../css/all.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet">
     <script defer src="js/all.js"></script>
     <link rel="stylesheet" href="css/app.css">
 </head>
@@ -102,9 +102,9 @@
         </div>
     </footer>
 
-    <script src="../jquery.js"></script>
-
-    <script type="text/javascript" src="../js/responsive-menu.js"></script>
+    <script src="js/jquery.js"></script>
+    
+    <script type="text/javascript" src="js/responsive-menu.js">
 
 </body>
 
