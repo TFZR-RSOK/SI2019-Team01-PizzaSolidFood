@@ -26,6 +26,7 @@
                     <li><a href="#gallery-content">Gallery</a></li>
                     <li><a href="#our-story">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="{{ url('/signup') }}" class="sign-up">Sign Up</a></li>
                 </ul>
                 <div class="menu-trigger"><i class="fas fa-bars"></i></div>
             </nav>

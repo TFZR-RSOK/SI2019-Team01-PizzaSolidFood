@@ -60,6 +60,18 @@ body {
                         a:hover{
                             color: $custom-yellow-darker;
                         }
+
+                        a.sign-up{
+                            border-radius: 5px;
+                            padding: 10px;
+                            transition: 0.5s;
+                            color: white;
+                            background-color: $custom-yellow-darker; 
+                        }
+
+                        a.sign-up:hover{
+                            background-color: $custom-yellow; 
+                        }
                     }
                 }
 

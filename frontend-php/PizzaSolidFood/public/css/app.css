@@ -480,6 +480,18 @@ body header .c2r1 nav ul li a:hover {
   color: #e8af00;
 }
 
+body header .c2r1 nav ul li a.sign-up {
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.5s;
+  color: white;
+  background-color: #e8af00;
+}
+
+body header .c2r1 nav ul li a.sign-up:hover {
+  background-color: #FFD34A;
+}
+
 body header .c2r1 nav ul.active {
   left: 0px;
 }
@@ -1023,6 +1035,55 @@ body #our-location .title h2 {
   font-family: Pacifico;
   font-size: 30px;
   color: white;
+}
+
+body #register-content {
+  width: 100%;
+  height: 100vh;
+  background-color: #F0F0F0;
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+body #register-content form {
+  background-color: white;
+  width: 400px;
+  padding: 60px 0px 60px 0px;
+  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.4);
+}
+
+body #register-content form * {
+  margin: 20px auto 20px auto;
+}
+
+body #register-content form .icon {
+  height: 120px;
+  width: 120px;
+  background-image: url(/../img/gmail.svg);
+}
+
+body #register-content form input[type=submit] {
+  margin-top: 40px;
+  width: 200px;
+  height: 40px;
+  background-color: #2196F3;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+  box-shadow: 4px 3px 3px -2px rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
+}
+
+body #register-content form input[type=submit]:hover {
+  background-color: white;
+  color: #757575;
+  border: 1px solid #757575;
 }
 
 body footer {
