@@ -8,6 +8,9 @@ body {
         width: 100%;
         position: fixed;
         z-index: 10000;
+        -webkit-box-shadow: 0px 1px 9px -3px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 1px 9px -3px rgba(0,0,0,0.75);
+        box-shadow: 0px 1px 9px -3px rgba(0,0,0,0.75);
         .container {
             width: 70%;
             margin: auto;
@@ -56,6 +59,18 @@ body {
                         }
                         a:hover{
                             color: $custom-yellow-darker;
+                        }
+
+                        a.sign-up{
+                            border-radius: 5px;
+                            padding: 10px;
+                            transition: 0.5s;
+                            color: white;
+                            background-color: $custom-yellow-darker; 
+                        }
+
+                        a.sign-up:hover{
+                            background-color: $custom-yellow; 
                         }
                     }
                 }

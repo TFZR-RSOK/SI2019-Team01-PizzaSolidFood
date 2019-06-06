@@ -21,11 +21,12 @@
             </div>
             <nav>
                 <ul>
-                    <li class="active-page"><a href="#welcome">Home</a></li>
+                    <li><a href="#welcome">Home</a></li>
                     <li><a href="#menu-content">Menu</a></li>
                     <li><a href="#gallery-content">Gallery</a></li>
                     <li><a href="#our-story">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="{{ url('/signup') }}" class="sign-up">Sign Up</a></li>
                 </ul>
                 <div class="menu-trigger"><i class="fas fa-bars"></i></div>
             </nav>
@@ -140,22 +141,22 @@
             </div>
             <div class="gallery">
                 <div class="image" id="image1">
-
+                    
                 </div>
                 <div class="image" id="image2">
-
+                    
                 </div>
                 <div class="image" id="image3">
-
+                    
                 </div>
                 <div class="image" id="image4">
-
+                    
                 </div>
                 <div class="image" id="image5">
-
+                    
                 </div>
                 <div class="image" id="image6">
-
+                    
                 </div>
             </div>
         </div>
