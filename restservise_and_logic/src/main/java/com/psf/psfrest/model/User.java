@@ -1,21 +1,19 @@
 package com.psf.psfrest.model;
 
 public class User {
-
-    private String userName;
-    private String userLastname;
+    private String token;
+    private String name;
+    private String lastName;
     private String email;
-    private Integer userType;
+    private int userType;
     private String address;
-    private Integer points;
-    private Integer monthlyOrders;
-    private String token; // ignore
-    public User(){}
+    private int points;
+    private int monthlyOrders;
 
-    public User(String token, String userName, String userLastname, String email) {
+    public User(String token, String name, String lastName, String email) {
         this.token = token;
-        this.userName = userName;
-        this.userLastname = userLastname;
+        this.name = name;
+        this.lastName = lastName;
         this.email = email;
     }
 
@@ -27,20 +25,20 @@ public class User {
         this.token = token;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUserLastname() {
-        return userLastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setUserLastname(String userLastname) {
-        this.userLastname = userLastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -51,11 +49,11 @@ public class User {
         this.email = email;
     }
 
-    public Integer getUserType() {
+    public int getUserType() {
         return userType;
     }
 
-    public void setUserType(Integer userType) {
+    public void setUserType(int userType) {
         this.userType = userType;
     }
 
@@ -67,19 +65,19 @@ public class User {
         this.address = address;
     }
 
-    public Integer getPoints() {
+    public int getPoints() {
         return points;
     }
 
-    public void setPoints(Integer points) {
+    public void setPoints(int points) {
         this.points = points;
     }
 
-    public Integer getMonthlyOrders() {
+    public int getMonthlyOrders() {
         return monthlyOrders;
     }
 
-    public void setMonthlyOrders(Integer montlyOrders) {
-        this.monthlyOrders = montlyOrders;
+    public void setMonthlyOrders(int monthlyOrders) {
+        this.monthlyOrders = monthlyOrders;
     }
 }

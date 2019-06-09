@@ -4,7 +4,6 @@ import com.jayway.jsonpath.JsonPath;
 import com.psf.psfrest.model.User;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class Utils {
 
@@ -16,20 +15,5 @@ public class Utils {
        System.out.println(name +" "+lastName+" "+email+" \n"+token);
 
        return new User(token, name, lastName, email);
-    }
-
-
-    public void fromJson() {
-
-    }
-
-
-    public void serialization() {
-
-    }
-
-
-    public void deserialization() {
-
     }
 }
