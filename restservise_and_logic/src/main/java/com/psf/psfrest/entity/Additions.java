@@ -1,12 +1,28 @@
-package com.psf.psfrest.model;
+package com.psf.psfrest.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "additions")
 public class Additions {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="ID_ADD")
+    private int id;
+
+    @Column(name = "ADD_NAME")
     private String additionName;
+
+    @Column(name = "ADD_PRICE")
     private double additionPrice;
 
-    public Additions(String additionName, double additionPrice) {
-        this.additionName = additionName;
-        this.additionPrice = additionPrice;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getAdditionName() {

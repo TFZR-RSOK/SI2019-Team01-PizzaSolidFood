@@ -1,19 +1,42 @@
-package com.psf.psfrest.model;
+package com.psf.psfrest.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "products")
 public class Products {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="ID_PROD")
+    private int idProd;
+
+    @Column(name = "PROD_NAME")
     private String productName;
+
+    @Column(name = "PROD_PRICE")
     private double productPrice;
+
+    @Column(name = "DISCOUNT_FOR_PREMIUM_USERS")
     private int discountForPremiumUsers;
+
+    @Column(name = "PROD_SIZE")
     private int productSize;
+
+    @Column(name = "PROD_DESCRIPTION")
     private String productDescription;
+
+    @Column(name = "IMAGE")
     private String imgPath;
 
-    public Products(String productName, double productPrice, int discountForPremiumUsers, int productSize, String productDescription, String imgPath) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.discountForPremiumUsers = discountForPremiumUsers;
-        this.productSize = productSize;
-        this.productDescription = productDescription;
+    public int getIdProd() {
+        return idProd;
+    }
+
+    public void setIdProd(int idProd) {
+        this.idProd = idProd;
+    }
+
+    public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
     }
 

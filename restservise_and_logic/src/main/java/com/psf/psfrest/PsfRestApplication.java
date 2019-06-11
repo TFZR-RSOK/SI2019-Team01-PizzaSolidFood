@@ -3,14 +3,13 @@ package com.psf.psfrest;
 import it.ozimov.springboot.mail.configuration.EnableEmailTools;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @SpringBootApplication
 @EnableEmailTools
-public class PsfRestApplication extends SpringBootServletInitializer {
+public class PsfRestApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PsfRestApplication.class, args);

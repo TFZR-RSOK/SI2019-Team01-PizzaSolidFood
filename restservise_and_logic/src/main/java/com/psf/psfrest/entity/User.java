@@ -1,14 +1,46 @@
-package com.psf.psfrest.model;
+package com.psf.psfrest.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
+
+@Component
+@Entity
+@Table(name = "users")
 public class User {
-    private String token;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="ID_USER")
+    private int id;
+
+    @Column(name = "USER_NAME")
     private String name;
+
+    @Column(name = "USER_LASTNAME")
     private String lastName;
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "USER_TYPE")
     private int userType;
+
+    @Column(name = "ADDRESS")
     private String address;
+
+    @Column(name = "POINTS")
     private int points;
+
+    @Column(name = "MONTHLY_ORDERS")
     private int monthlyOrders;
+
+    @JsonInclude()
+    @Transient
+    private String token;
+
+    public User() {
+    }
 
     public User(String token, String name, String lastName, String email) {
         this.token = token;
@@ -79,5 +111,13 @@ public class User {
 
     public void setMonthlyOrders(int monthlyOrders) {
         this.monthlyOrders = monthlyOrders;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
