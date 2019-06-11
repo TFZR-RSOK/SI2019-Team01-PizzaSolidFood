@@ -1,8 +1,8 @@
 # REST Service and Logic
-This is a folder for files that support and integrate REST servisce of the application and provide logic for the application.
+This is a folder for files that support and integrate REST service of the application and provide logic for the application.
 
 
-*.war* files are in target -> *psf-rest.war*
+*.war* file is in target -> *psf-rest.war*
 
 1. Copy WAR file from target/psf-rest.war to the tomcat/webapps/ folder
 2. From a terminal navigate to tomcat/bin folder and execute
