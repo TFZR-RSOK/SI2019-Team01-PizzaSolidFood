@@ -16,7 +16,7 @@ This is a folder for files that support and integrate REST servisce of the appli
 
 */public* - public end-points
 
-###*/auth/login*    
+### */auth/login*    
 
 **METHOD:** "GET"
 
@@ -37,7 +37,7 @@ Returns:
 }
 ```
 
-###*/auth/logout*
+### */auth/logout*
 
 **METHOD:** "GET"
 
@@ -46,7 +46,7 @@ Params: ```Token string ```
 Returns: ```void```
 <hr>
 
-###*/public/products*
+### */public/products*
 
 **METHOD:** "POST"
 
@@ -85,7 +85,7 @@ Returns:
 ]
 ```
 
-###*/public/additions*
+### */public/additions*
 
 **METHOD:** "POST"
 
