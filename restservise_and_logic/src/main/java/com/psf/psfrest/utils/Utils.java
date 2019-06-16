@@ -16,7 +16,6 @@ public class Utils {
     }
 
     public User getUserCredentials(String jsonString) {
-       user.setToken(JsonPath.read(jsonString,"$.details.tokenValue"));
        user.setName(JsonPath.read(jsonString, "$.userAuthentication.details.given_name"));
        user.setLastName(JsonPath.read(jsonString, "$.userAuthentication.details.family_name"));
        user.setEmail(JsonPath.read(jsonString, "$.userAuthentication.details.email"));

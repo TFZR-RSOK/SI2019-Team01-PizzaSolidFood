@@ -1,10 +1,19 @@
 package com.psf.psfrest.controllers;
 
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import com.psf.psfrest.jwt.JwtAuthenticationProvider;
+import com.psf.psfrest.jwt.JwtAuthenticationTokenFilter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -12,7 +21,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 
 @Configuration
-@EnableOAuth2Sso
+@EnableWebSecurity
+@EnableAutoConfiguration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -24,6 +35,31 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
                 .httpBasic();
+        // don't create session
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); //.and()
+        // Custom JWT based security filter
+        http
+                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+        // disable page caching
+        http.headers().cacheControl();
+    }
+
+    @Autowired
+    private JwtAuthenticationProvider authenticationProvider;
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManager() throws Exception {
+
+        return new ProviderManager(Arrays.asList(authenticationProvider));
+    }
+
+    @Bean
+    public JwtAuthenticationTokenFilter authenticationTokenFilterBean() throws Exception {
+        JwtAuthenticationTokenFilter authenticationTokenFilter = new JwtAuthenticationTokenFilter();
+        authenticationTokenFilter.setAuthenticationManager(authenticationManager());
+        //authenticationTokenFilter.setAuthenticationSuccessHandler(new JwtAuthenticationSuccessHandler());
+        return authenticationTokenFilter;
     }
 
     @Bean

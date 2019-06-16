@@ -35,26 +35,13 @@ public class User {
     @Column(name = "MONTHLY_ORDERS")
     private int monthlyOrders;
 
-    @JsonInclude()
-    @Transient
-    private String token;
-
     public User() {
     }
 
-    public User(String token, String name, String lastName, String email) {
-        this.token = token;
+    public User(String name, String lastName, String email) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
     }
 
     public String getName() {
@@ -120,4 +107,5 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
+
 }
