@@ -43,7 +43,7 @@ Returns:
 
 Params: ```Token string ```
 
-Returns: ```void```
+Returns: ```Redirect to https://mail.google.com/mail/logout?hl=en```
 <hr>
 
 ### */public/products*
