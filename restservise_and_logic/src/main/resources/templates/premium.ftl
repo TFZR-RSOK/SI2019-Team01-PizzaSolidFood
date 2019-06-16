@@ -7,6 +7,7 @@
     <h3>You will get discount on every order and you can now order your custom pizza</h3>
     <h6>Premium account have duration of 1 month, if you earn enough points in that duration your's premium account will
         be prolonged.</h6>
+    <img src="psflogo.png">
 </body>
 
 </html>
