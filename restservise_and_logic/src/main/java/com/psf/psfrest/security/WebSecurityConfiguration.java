@@ -1,6 +1,7 @@
 package com.psf.psfrest.security;
 
 import com.psf.psfrest.jwt.JwtAuthenticationProvider;
+import com.psf.psfrest.jwt.JwtAuthenticationSuccessHandler;
 import com.psf.psfrest.jwt.JwtAuthenticationTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -62,7 +63,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public JwtAuthenticationTokenFilter authenticationTokenFilterBean() throws Exception {
         JwtAuthenticationTokenFilter authenticationTokenFilter = new JwtAuthenticationTokenFilter();
         authenticationTokenFilter.setAuthenticationManager(authenticationManager());
-        //authenticationTokenFilter.setAuthenticationSuccessHandler(new JwtAuthenticationSuccessHandler());
+        authenticationTokenFilter.setAuthenticationSuccessHandler(new JwtAuthenticationSuccessHandler());
         return authenticationTokenFilter;
     }
 
