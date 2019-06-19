@@ -1,11 +1,11 @@
 INSERT INTO products (PROD_NAME, PROD_PRICE, PROD_SIZE, DISCOUNT_FOR_PREMIUM_USERS, PROD_DESCRIPTION, IMAGE)
-VALUES ('Napoletana','12.35','100','20','mozzarella cheese, baked ham, mushroom, artichoke and tomato and pizza pugliese, prepared with tomato, mozzarella and onions','image01');
+VALUES ('Napoletana','12.35','100','20','mozzarella cheese, baked ham, mushroom, artichoke and tomato and pizza pugliese, prepared with tomato, mozzarella and onions','img/peperoni.jpg');
 
 INSERT INTO products (PROD_NAME, PROD_PRICE, PROD_SIZE, DISCOUNT_FOR_PREMIUM_USERS, PROD_DESCRIPTION, IMAGE)
-VALUES ('Margherita','15.99','100','69','San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil','image02');
+VALUES ('Margherita','15.99','100','69','San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil','img/mergherita.jpg');
 
 INSERT INTO products (PROD_NAME, PROD_PRICE, PROD_SIZE, DISCOUNT_FOR_PREMIUM_USERS, PROD_DESCRIPTION, IMAGE)
-VALUES ('Quattro stagioni','20.99','100','21','artichokes, tomatoes or basil, mushrooms and ham or prosciutto, or olives','image03');
+VALUES ('Quattro stagioni','20.99','100','21','artichokes, tomatoes or basil, mushrooms and ham or prosciutto, or olives','img/quattro_stagioni.jpg');
 
 
 INSERT INTO users (USER_NAME, USER_LASTNAME, EMAIL, USER_TYPE, ADDRESS, POINTS, MONTHLY_ORDERS)

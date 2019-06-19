@@ -1,6 +1,5 @@
 package com.psf.psfrest.entity;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -108,4 +107,17 @@ public class User {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", userType=" + userType +
+                ", address='" + address + '\'' +
+                ", points=" + points +
+                ", monthlyOrders=" + monthlyOrders +
+                '}';
+    }
 }

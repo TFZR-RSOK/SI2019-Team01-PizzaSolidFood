@@ -32,6 +32,7 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
     }
 
     @Override
+    @Deprecated
     protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
         JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) authentication;
         String token = jwtAuthenticationToken.getToken();
@@ -44,7 +45,7 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
 
         List<GrantedAuthority> authorityList = AuthorityUtils.commaSeparatedStringToAuthorityList(parsedUser.getRole());
 
-        return new AuthenticatedUser(parsedUser.getId(), parsedUser.getUsername(), token, authorityList);
+        return new AuthenticatedUser(parsedUser.getName(), parsedUser.getLastname(), parsedUser.getEmail(), token, authorityList);
     }
 
 }

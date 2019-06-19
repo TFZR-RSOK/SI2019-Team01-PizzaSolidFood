@@ -8,21 +8,32 @@ import java.util.Collection;
 
 public class AuthenticatedUser implements UserDetails {
 
-    private final Long id;
-    private final String username;
+    private final String name;
+    private final String lastname;
+    private final String email;
     private final String token;
+    private final String username;
     private final Collection<? extends GrantedAuthority> authorities;
 
-    public AuthenticatedUser(Long id, String username, String token, Collection<? extends GrantedAuthority> authorities) {
-        this.id = id;
-        this.username = username;
+    public AuthenticatedUser(String name, String lastname, String email, String token, Collection<? extends GrantedAuthority> authorities) {
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.username = name+lastname;
         this.token = token;
         this.authorities = authorities;
     }
 
-    @JsonIgnore
-    public Long getId() {
-        return id;
+    public String getName() {
+        return name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     @Override

@@ -1,17 +1,17 @@
 package com.psf.psfrest.utils;
 
+import com.auth0.jwt.JWT;
 import com.psf.psfrest.model.JwtUser;
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
-import io.jsonwebtoken.Jwts;
-import org.springframework.beans.factory.annotation.Value;
+import org.apache.commons.io.IOUtils;
+import org.json.JSONObject;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.Base64;
 
 @Component
 public class JwtTokenValidator {
-
-    @Value("${jwt.secret}")
-    private String secret;
 
     /**
      * Tries to parse specified String as a JWT token. If successful, returns User object with username, id and role prefilled (extracted from token).
@@ -20,24 +20,23 @@ public class JwtTokenValidator {
      * @param token the JWT token to parse
      * @return the User object extracted from specified token or null if a token is invalid.
      */
+    @Deprecated
     public JwtUser parseToken(String token) {
         JwtUser user = null;
         try {
-
-            Claims body = Jwts.parser()
-                    .setSigningKey(secret)
-                    .parseClaimsJws("Bearer "+token)
-                    .getBody();
-
+            byte[] base = Base64.getDecoder().decode(JWT.decode(token).getPayload().getBytes());
+            JSONObject jsonObject = new JSONObject(IOUtils.toString(base));
             user = new JwtUser();
-            user.setUsername(body.getSubject());
-            user.setId(Long.parseLong((String) body.get("userId")));
-            user.setRole((String) body.get("role"));
+            user.setEmail(jsonObject.getString("email"));
+            user.setName(jsonObject.getString("given_name"));
+            user.setLastname(jsonObject.getString("family_name"));
+            user.setRole("user");
 
-        } catch (JwtException e) {
-            // Simply print the exception and null will be returned for the userDto
+        } catch (JwtException | IOException e) {
             e.printStackTrace();
         }
         return user;
     }
+
+
 }

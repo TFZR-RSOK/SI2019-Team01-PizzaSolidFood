@@ -93,7 +93,7 @@ public class PremiumUsersCheck implements Runnable {
     private void givePremiumAccount() throws IOException, CannotSendEmailException {
         for (User user : list) {
             currentUser = user;
-            if (currentUser.getMonthlyOrders() >= 10 && currentUser.getPoints() >= 100) {
+            if (currentUser.getMonthlyOrders() >= 10 && currentUser.getPoints() >= 100 && currentUser.getUserType() == 0) {
                 currentUser.setUserType(1/*premium*/);
                 userService.updateUserType(currentUser);
                 mail.sendCongratulationsToNewPremiumUser(currentUser.getName(), currentUser.getEmail());

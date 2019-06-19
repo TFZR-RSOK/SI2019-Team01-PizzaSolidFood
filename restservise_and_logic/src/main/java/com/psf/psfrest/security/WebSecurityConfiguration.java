@@ -1,4 +1,4 @@
-package com.psf.psfrest.controllers;
+package com.psf.psfrest.security;
 
 import com.psf.psfrest.jwt.JwtAuthenticationProvider;
 import com.psf.psfrest.jwt.JwtAuthenticationTokenFilter;

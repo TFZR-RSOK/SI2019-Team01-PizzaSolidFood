@@ -8,16 +8,13 @@ import it.ozimov.springboot.mail.model.defaultimpl.DefaultEmail;
 import it.ozimov.springboot.mail.model.defaultimpl.DefaultInlinePicture;
 import it.ozimov.springboot.mail.service.EmailService;
 import it.ozimov.springboot.mail.service.exception.CannotSendEmailException;
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.InternetAddress;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 

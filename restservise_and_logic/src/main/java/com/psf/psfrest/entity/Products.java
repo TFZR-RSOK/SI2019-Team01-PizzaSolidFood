@@ -1,5 +1,8 @@
 package com.psf.psfrest.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 
 @Entity
@@ -26,7 +29,20 @@ public class Products {
     private String productDescription;
 
     @Column(name = "IMAGE")
+    @JsonIgnore
     private String imgPath;
+
+    @JsonInclude()
+    @Transient
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public int getIdProd() {
         return idProd;
