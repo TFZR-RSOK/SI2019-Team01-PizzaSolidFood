@@ -12,13 +12,13 @@ body {
         -moz-box-shadow: 0px 1px 9px -3px rgba(0,0,0,0.75);
         box-shadow: 0px 1px 9px -3px rgba(0,0,0,0.75);
         .container {
-            width: 70%;
+            width: 95%;
             margin: auto;
         }
 
         .c2r1 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 30% 70%;
             grid-template-rows: 1fr;
             height: 70px;
 
