@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.UnsupportedEncodingException;
+
 @RestController
 public class ContactController {
 
@@ -16,8 +18,7 @@ public class ContactController {
     public void contact(@PathVariable("subject") String subject,
                         @PathVariable("name") String name,
                         @PathVariable("customerMail") String customerMail,
-                        @PathVariable("msg") String msg)
-    {
+                        @PathVariable("msg") String msg) throws UnsupportedEncodingException {
         mail.customerMsg(subject, name, customerMail, msg);
     }
 

@@ -42,29 +42,6 @@ INSERT INTO `additions` VALUES (1,'Bacon',0.50),(2,'Cheese',0.25),(3,'Mushroom',
 UNLOCK TABLES;
 
 --
--- Temporary table structure for view `mail`
---
-
-DROP TABLE IF EXISTS `mail`;
-/*!50001 DROP VIEW IF EXISTS `mail`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE VIEW `mail` AS SELECT 
- 1 AS `user_name`,
- 1 AS `user_lastname`,
- 1 AS `total_price`,
- 1 AS `date_time`,
- 1 AS `payment`,
- 1 AS `quantity`,
- 1 AS `order_num`,
- 1 AS `prod_name`,
- 1 AS `prod_price`,
- 1 AS `discount_for_premium_users`,
- 1 AS `add_name`,
- 1 AS `add_price`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Table structure for table `order`
 --
 
@@ -83,7 +60,7 @@ CREATE TABLE `order` (
   UNIQUE KEY `ID_ORDER` (`ID_ORDER`),
   KEY `fk_order_products1_idx` (`products_ID_PROD`),
   CONSTRAINT `fk_order_products1` FOREIGN KEY (`products_ID_PROD`) REFERENCES `products` (`ID_PROD`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +69,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (4,20.99,'2019-06-09 00:00:00','paypal',1,123456,3);
+INSERT INTO `order` VALUES (11,16.99,'2019-06-20 00:00:00','paypal',1,222222,3),(12,20.70,'2019-06-20 00:00:00','paypal',2,222222,1);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -139,9 +116,57 @@ CREATE TABLE `order_has_additions` (
 
 LOCK TABLES `order_has_additions` WRITE;
 /*!40000 ALTER TABLE `order_has_additions` DISABLE KEYS */;
-INSERT INTO `order_has_additions` VALUES (4,3,2);
+INSERT INTO `order_has_additions` VALUES (11,3,2);
 /*!40000 ALTER TABLE `order_has_additions` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `order_with_addition`
+--
+
+DROP TABLE IF EXISTS `order_with_addition`;
+/*!50001 DROP VIEW IF EXISTS `order_with_addition`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `order_with_addition` AS SELECT 
+ 1 AS `id_order`,
+ 1 AS `user_name`,
+ 1 AS `user_lastname`,
+ 1 AS `user_type`,
+ 1 AS `total_price`,
+ 1 AS `date_time`,
+ 1 AS `payment`,
+ 1 AS `quantity`,
+ 1 AS `order_num`,
+ 1 AS `prod_name`,
+ 1 AS `prod_price`,
+ 1 AS `discount_for_premium_users`,
+ 1 AS `add_name`,
+ 1 AS `add_price`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `order_without_addition`
+--
+
+DROP TABLE IF EXISTS `order_without_addition`;
+/*!50001 DROP VIEW IF EXISTS `order_without_addition`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `order_without_addition` AS SELECT 
+ 1 AS `id_order`,
+ 1 AS `user_name`,
+ 1 AS `user_lastname`,
+ 1 AS `user_type`,
+ 1 AS `total_price`,
+ 1 AS `date_time`,
+ 1 AS `payment`,
+ 1 AS `quantity`,
+ 1 AS `order_num`,
+ 1 AS `prod_name`,
+ 1 AS `prod_price`,
+ 1 AS `discount_for_premium_users`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `orders`
@@ -167,7 +192,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,2,21.24,123456);
+INSERT INTO `orders` VALUES (1,4,37.94,222222);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +222,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Napoletana',12.35,20,100,'mozzarella cheese, baked ham, mushroom, artichoke and tomato and pizza pugliese, prepared with tomato, mozzarella and onions','image01'),(2,'Margherita',15.99,69,100,'San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil','image02'),(3,'Quattro stagioni',20.99,21,100,'artichokes, tomatoes or basil, mushrooms and ham or prosciutto, or olives','image03');
+INSERT INTO `products` VALUES (1,'Napoletana',12.35,20,100,'mozzarella cheese, baked ham, mushroom, artichoke and tomato and pizza pugliese, prepared with tomato, mozzarella and onions','img/peperoni.jpg'),(2,'Margherita',15.99,69,100,'San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil','img/margherita.jpg'),(3,'Quattro stagioni',20.99,21,100,'artichokes, tomatoes or basil, mushrooms and ham or prosciutto, or olives','img/quattro_stagioni.jpg');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,7 +253,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('Elijah','Agbabah',1,'ilijah.agbabah@tfzr.rs',2,'Jovana Popovica 29',69,8),('Nikolah','Turudijah',2,'nikolah.turudijah@tfzr.rs',1,'dorm',0,8),('Mihalh','Kristianh',3,'mihalah.kristianh@tfzr.rs',0,'across the street of faculty',420,21),('Mihal','Kalamin',4,'kalamin.michal@gmail.com',0,NULL,0,0);
+INSERT INTO `users` VALUES ('Elijah','Agbabah',1,'ilijah.agbabah@tfzr.rs',2,'Jovana Popovica 29',69,8),('Nikolah','Turudijah',2,'nikolah.turudijah@tfzr.rs',1,'dorm',0,8),('Mihal','Kalamin',4,'kalamin.michal@gmail.com',1,NULL,0,21);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,15 +321,15 @@ BEGIN
     
     select id_user into _id_user from users where users.email = user_mail;
     
-    select id_order into _id_order from `order` where `order`.order_num = order_num;
-    
     select sum(`order`.order_price) into total_order_price from `order` where `order`.order_num = order_num;
     select sum(`additions`.add_price) into total_add_price 
-    from additions, order_has_additions
+    from additions, order_has_additions, `order`
     where 
-        order_has_additions.order_id_order = _id_order
+        order_has_additions.order_id_order = `order`.id_order
         and
-        order_has_additions.additions_id_add = additions.id_add;
+        order_has_additions.additions_id_add = additions.id_add
+        and
+        `order`.ORDER_NUM = order_num;
     
     set _total_price = total_order_price + total_add_price;
    
@@ -349,12 +374,15 @@ BEGIN
 
     select users.user_type into user_type from users where users.email = email;
 
-    select products.id_prod, products.prod_price, products.discount_for_premium_users,
-    IF(user_type > 0, products.discount_for_premium_users, 0) 
+    select products.id_prod, products.prod_price, products.discount_for_premium_users
     into product_id, price, discount
     from products where products.prod_name = product_name;
    
-    set dis = price - (price * (discount / 100));
+	IF user_type = 0 then
+		set discount = 0;
+    end if;
+   
+    set dis = price * (discount / 100);
     set order_price = (price - dis) * quantity;
     
     insert into `order`(ORDER_PRICE, PAYMENT, QUANTITY, ORDER_NUM, PRODUCTS_ID_PROD)
@@ -367,10 +395,10 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
--- Final view structure for view `mail`
+-- Final view structure for view `order_with_addition`
 --
 
-/*!50001 DROP VIEW IF EXISTS `mail`*/;
+/*!50001 DROP VIEW IF EXISTS `order_with_addition`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
@@ -379,7 +407,25 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `mail` AS select `users`.`USER_NAME` AS `user_name`,`users`.`USER_LASTNAME` AS `user_lastname`,`orders`.`TOTAL_PRICE` AS `total_price`,`order`.`DATE_TIME` AS `date_time`,`order`.`PAYMENT` AS `payment`,`order`.`QUANTITY` AS `quantity`,`order`.`ORDER_NUM` AS `order_num`,`products`.`PROD_NAME` AS `prod_name`,`products`.`PROD_PRICE` AS `prod_price`,`products`.`DISCOUNT_FOR_PREMIUM_USERS` AS `discount_for_premium_users`,`additions`.`ADD_NAME` AS `add_name`,`additions`.`ADD_PRICE` AS `add_price` from (((((`users` join `orders`) join `order`) join `products`) join `additions`) join `order_has_additions`) where ((`users`.`ID_USER` = `orders`.`users_ID_USER`) and (`orders`.`ORDERS_ORDER_NUM` = `order`.`ORDER_NUM`) and (`order`.`ID_ORDER` = `products`.`ID_PROD`) and (`order`.`ID_ORDER` = `order_has_additions`.`order_ID_ORDER`) and (`additions`.`ID_ADD` = `order_has_additions`.`additions_ID_ADD`)) */;
+/*!50001 VIEW `order_with_addition` AS select `order`.`ID_ORDER` AS `id_order`,`users`.`USER_NAME` AS `user_name`,`users`.`USER_LASTNAME` AS `user_lastname`,`users`.`USER_TYPE` AS `user_type`,`orders`.`TOTAL_PRICE` AS `total_price`,`order`.`DATE_TIME` AS `date_time`,`order`.`PAYMENT` AS `payment`,`order`.`QUANTITY` AS `quantity`,`order`.`ORDER_NUM` AS `order_num`,`products`.`PROD_NAME` AS `prod_name`,`products`.`PROD_PRICE` AS `prod_price`,`products`.`DISCOUNT_FOR_PREMIUM_USERS` AS `discount_for_premium_users`,`additions`.`ADD_NAME` AS `add_name`,`additions`.`ADD_PRICE` AS `add_price` from (((((`users` join `orders`) join `order`) join `products`) join `additions`) join `order_has_additions`) where ((`users`.`ID_USER` = `orders`.`users_ID_USER`) and (`orders`.`ORDERS_ORDER_NUM` = `order`.`ORDER_NUM`) and (`order`.`products_ID_PROD` = `products`.`ID_PROD`) and (`order`.`ID_ORDER` = `order_has_additions`.`order_ID_ORDER`) and (`additions`.`ID_ADD` = `order_has_additions`.`additions_ID_ADD`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `order_without_addition`
+--
+
+/*!50001 DROP VIEW IF EXISTS `order_without_addition`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `order_without_addition` AS select `order`.`ID_ORDER` AS `id_order`,`users`.`USER_NAME` AS `user_name`,`users`.`USER_LASTNAME` AS `user_lastname`,`users`.`USER_TYPE` AS `user_type`,`orders`.`TOTAL_PRICE` AS `total_price`,`order`.`DATE_TIME` AS `date_time`,`order`.`PAYMENT` AS `payment`,`order`.`QUANTITY` AS `quantity`,`order`.`ORDER_NUM` AS `order_num`,`products`.`PROD_NAME` AS `prod_name`,`products`.`PROD_PRICE` AS `prod_price`,`products`.`DISCOUNT_FOR_PREMIUM_USERS` AS `discount_for_premium_users` from (((`users` join `orders`) join `order`) join `products`) where ((`users`.`ID_USER` = `orders`.`users_ID_USER`) and (`orders`.`ORDERS_ORDER_NUM` = `order`.`ORDER_NUM`) and (`order`.`products_ID_PROD` = `products`.`ID_PROD`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -393,4 +439,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-12 10:39:08
+-- Dump completed on 2019-06-21 19:18:38

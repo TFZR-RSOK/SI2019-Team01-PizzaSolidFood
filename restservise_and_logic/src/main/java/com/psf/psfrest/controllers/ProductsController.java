@@ -36,6 +36,11 @@ public class ProductsController {
         return products;
     }
 
+    @GetMapping("/public/product/{productName}")
+    public Products getProduct(@PathVariable String productName) {
+        return productsService.getProduct(productName);
+    }
+
     @PostMapping("/public/additions")
     public @ResponseBody List<Additions> getAdditions() {
         return additionsService.getAllAdditions();

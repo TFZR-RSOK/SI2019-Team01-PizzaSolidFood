@@ -1,5 +1,6 @@
 package com.psf.psfrest.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -33,6 +34,10 @@ public class User {
 
     @Column(name = "MONTHLY_ORDERS")
     private int monthlyOrders;
+
+    @Transient
+    @JsonInclude()
+    private String status;
 
     public User() {
     }
@@ -105,6 +110,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     @Override

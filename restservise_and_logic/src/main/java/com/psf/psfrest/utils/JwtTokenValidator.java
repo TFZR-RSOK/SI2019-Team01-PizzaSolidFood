@@ -2,7 +2,6 @@ package com.psf.psfrest.utils;
 
 import com.auth0.jwt.JWT;
 import com.psf.psfrest.model.JwtUser;
-import io.jsonwebtoken.JwtException;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
@@ -32,7 +31,7 @@ public class JwtTokenValidator {
             user.setLastname(jsonObject.getString("family_name"));
             user.setRole("user");
 
-        } catch (JwtException | IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return user;

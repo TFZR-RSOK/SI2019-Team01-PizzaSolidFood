@@ -16,12 +16,15 @@ BEGIN
 
     select users.user_type into user_type from users where users.email = email;
 
-    select products.id_prod, products.prod_price, products.discount_for_premium_users,
-    IF(user_type > 0, products.discount_for_premium_users, 0) 
+    select products.id_prod, products.prod_price, products.discount_for_premium_users
     into product_id, price, discount
     from products where products.prod_name = product_name;
    
-    set dis = price - (price * (discount / 100));
+    IF user_type = 0 then
+        set discount = 0;
+    end if;
+   
+    set dis = price * (discount / 100);
     set order_price = (price - dis) * quantity;
     
     insert into `order`(ORDER_PRICE, PAYMENT, QUANTITY, ORDER_NUM, PRODUCTS_ID_PROD)
@@ -67,15 +70,17 @@ BEGIN
     
     select id_user into _id_user from users where users.email = user_mail;
     
-    select id_order into _id_order from `order` where `order`.order_num = order_num;
+   # select id_order into _id_order from `order` order by id_order desc limit 1;
     
     select sum(`order`.order_price) into total_order_price from `order` where `order`.order_num = order_num;
     select sum(`additions`.add_price) into total_add_price 
-    from additions, order_has_additions
+    from additions, order_has_additions, `order`
     where 
-        order_has_additions.order_id_order = _id_order
+        order_has_additions.order_id_order = `order`.id_order
         and
-        order_has_additions.additions_id_add = additions.id_add;
+        order_has_additions.additions_id_add = additions.id_add
+        and
+        `order`.ORDER_NUM = order_num;
     
     set _total_price = total_order_price + total_add_price;
    

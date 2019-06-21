@@ -18,7 +18,9 @@ This is a folder for files that support and integrate REST service of the applic
 
 ### */auth/login*    
 
-**METHOD:** "GET"
+headers: Authorization Bearer Token
+
+**METHOD:** "POST"
 
 Params: ```void```
 
@@ -32,19 +34,9 @@ Returns:
   "userType": 0,
   "address": null,
   "points": 0,
-  "monthlyOrders": 0,
-  "token": "token string"
+  "monthlyOrders": 0
 }
 ```
-
-### */auth/logout*
-
-**METHOD:** "GET"
-
-Params: ```Token string ```
-
-Returns: ```Redirect to https://mail.google.com/mail/logout?hl=en```
-<hr>
 
 ### */public/products*
 
@@ -62,7 +54,7 @@ Returns:
         "discountForPremiumUsers": 20,
         "productSize": 100,
         "productDescription": "mozzarella cheese, baked ham, mushroom, artichoke and tomato and pizza pugliese, prepared with tomato, mozzarella and onions",
-        "imgPath": "image01"
+        "image": "BASE64 String"  
     },
     {
         "idProd": 2,
@@ -71,7 +63,7 @@ Returns:
         "discountForPremiumUsers": 69,
         "productSize": 100,
         "productDescription": "San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil",
-        "imgPath": "image02"
+        "image": "BASE64 String"
     },
     {
         "idProd": 3,
@@ -80,11 +72,32 @@ Returns:
         "discountForPremiumUsers": 21,
         "productSize": 100,
         "productDescription": "artichokes, tomatoes or basil, mushrooms and ham or prosciutto, or olives",
-        "imgPath": "image03"
+        "image": "BASE64 String"
     }
 ]
 ```
+<hr>
 
+### */public/product*
+
+**METHOD:** "GET"
+
+Params: ```String productName ```
+
+Returns:
+```json
+{
+  "idProd": 2,
+  "productName": "Margherita",
+  "productPrice": 15.99,
+  "discountForPremiumUsers": 69,
+  "productSize": 100,
+  "productDescription": "San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil",
+  "image": "BASE64 String"
+}
+```
+
+<hr>
 ### */public/additions*
 
 **METHOD:** "POST"
@@ -112,3 +125,57 @@ Returns:
 ]
 ```
 
+<hr>
+
+
+### */public/contact/*
+
+**METHOD:** "GET"
+
+Params: 
+```
+    String customerMail,
+    String name,
+    String subject
+    String msg
+```
+Returns: ```void```
+<hr>
+
+### */public/address/*
+
+**METHOD:** "GET"
+
+Params
+```
+    String userAddress
+```
+
+Returns: ```void```
+<hr>
+
+### */auth/order/*
+
+**METHOD:** "GET"
+
+headers: Authorization Bearer Token
+
+Params ```void```
+
+JSON Body
+```json
+[
+    {
+      "mail": "joh.doe@gmail.com",
+      "userType": 0,
+      "productName": "Margherita",
+      "payment": "paypal",
+      "quantity": 1,
+      "orderNum": 1234,
+      "additionName": "Bacon" or ""
+    },
+    ...
+]
+
+``` 
+Returns: ```void```

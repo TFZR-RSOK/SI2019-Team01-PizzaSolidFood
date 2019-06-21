@@ -19,4 +19,9 @@ public class ProductsService implements IProductsService{
         productsRepository.findAll().forEach(list::add);
         return list;
     }
+
+    @Override
+    public Products getProduct(String productName) {
+        return productsRepository.findByProductNameEquals(productName);
+    }
 }

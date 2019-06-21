@@ -25,7 +25,7 @@ public class AuthenticationController {
     @Autowired
     private User psfUser;
 
-    @GetMapping("/auth/login")
+    @PostMapping("/auth/login")
     public ResponseEntity<?> loginUser(UsernamePasswordAuthenticationToken p) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         String jsonString = mapper.writeValueAsString(p.getPrincipal());
@@ -33,10 +33,13 @@ public class AuthenticationController {
 
         psfUser = userService.findUserByEmail(googleUser.getEmail());
         if (psfUser == null) {
-            System.out.println(googleUser);
+            //System.out.println(googleUser);
+            googleUser.setStatus("loggedin");
             return ResponseEntity.ok(googleUser);
         }
         else {
+            //System.out.println(psfUser);
+            psfUser.setStatus("loggedin");
             return ResponseEntity.ok(psfUser);
         }
     }

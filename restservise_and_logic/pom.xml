@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.psd</groupId>
     <artifactId>psf-rest</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0.BETA</version>
     <name>psf-rest</name>
     <description>Pizza Solid Food</description>
     <packaging>war</packaging>
@@ -81,6 +81,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
@@ -88,18 +89,11 @@
             <version>20180813</version>
         </dependency>
 
-
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
             <version>3.8.1</version>
         </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
-        </dependency>
-
     </dependencies>
 
     <build>
