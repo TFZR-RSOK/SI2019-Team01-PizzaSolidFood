@@ -8,6 +8,8 @@ use League\OAuth2\Client\Provider\Google;
 use League\OAuth2\Client\Token\AccessToken;
 use GuzzleHttp\Exception\ClientException;
 
+use HomeDefaultController;
+
 use Session;
 
 class SocialAuthController extends Controller
@@ -51,11 +53,11 @@ class SocialAuthController extends Controller
             //echo $jwt;
             try {
                 $client = new \GuzzleHttp\Client();
-                $response = $client->request('GET', 'http://localhost:8080/psf-rest/auth/login', [
+                $response = $client->request('POST', 'http://localhost:8080/psf-rest/auth/login', [
                     'headers' => ['Authorization' => 'Bearer '.$jwt]
                 ]);
 
-                $contents = $response->getBody()->getContents();;
+                $contents = $response->getBody()->getContents();
                 //print_r($contents);
 
                 $json = json_decode($contents, true);
@@ -75,7 +77,8 @@ class SocialAuthController extends Controller
                 session(['status' => $status]);
                 
                 
-                return view('home');
+                
+                return redirect()->action('HomeDefaultController@home');
             } catch(ClientException  $e) {
                 return redirect()->route('signup');
             }

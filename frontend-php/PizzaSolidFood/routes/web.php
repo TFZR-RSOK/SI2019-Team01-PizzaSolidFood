@@ -25,6 +25,8 @@ Route::get('/product',['as' => 'product', function () {
     return view('product');
 }]);
 
+
+
 Route::get('/signout','Signout@signout');
 
 Route::get('/json', 'GuzzleController@getRemoteData');

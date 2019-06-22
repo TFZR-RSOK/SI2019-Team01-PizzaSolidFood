@@ -109,60 +109,20 @@
                 <h2>MENU</h2>    
             </div>
             <div class="menu">
-                <article>
-                    <img src="../img/menu/1.jpg" alt="pizza image">
-                    <h2>Quattro Stagioni</h2>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="order-btn" href="">Order</a>
-                </article>
-                <article>
-                    <img src="../img/menu/2.jpg" alt="pizza image">
-                    <h2>Margherita</h2>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="order-btn" href="">Order</a>
-                </article>
-                <article>
-                    <img src="../img/menu/3.jpg" alt="pizza image">
-                    <h2>Hawaii</h2>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="order-btn" href="">Order</a>
-                </article>
-                <article>
-                    <img src="../img/menu/4.jpg" alt="pizza image">
-                    <h2>Garlic Fingers</h2>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="order-btn" href="">Order</a>
-                </article>
-                <article>
-                    <img src="../img/menu/5.jpg" alt="pizza image">
-                    <h2>Meat Feast</h2>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="order-btn" href="">Order</a>
-                </article>
-                <article>
-                    <img src="../img/menu/6.jpg" alt="pizza image">
-                    <h2>Peperoni</h2>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="order-btn" href="">Order</a>
-                </article>
+                @if(count($pizza) > 1)
+                    @foreach($pizza as $pizzas)
+                        <article>
+                            @php $filename = $pizzas['productName'] . '.jpg' @endphp
+                            <img src="{{ asset('storage/' .$filename) }}" alt="pizza image">
+                            <h2> {{ $pizzas['productName'] }} </h2>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <a class="order-btn" href="">Order</a>
+                        </article>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
