@@ -60,7 +60,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `complete_order_procedure`(in order_
 BEGIN
     
     declare _points smallint;
-    declare _montly_orders smallint;
+    declare _monthly_orders smallint;
     declare _id_user bigint;
     declare _total_price double(9,2);
     declare total_order_price double(8,2);
@@ -82,14 +82,21 @@ BEGIN
         and
         `order`.ORDER_NUM = order_num;
     
+    if total_add_price is null then
+        set total_add_price = 0;
+    end if;
+
     set _total_price = total_order_price + total_add_price;
    
     insert into orders (USERS_ID_USER, TOTAL_PRICE, ORDERS_ORDER_NUM)
     values(_id_user, _total_price, order_num);
     
+    select users.points into _points from users where users.email = user_mail;
+    select users.monthly_orders into _monthly_orders from users where users.email = user_mail;
+
     update users
-    set points = ROUND(_total_price) / 100,
-    monthly_orders = monthly_orders + 1
+    set points = _points + ROUND(_total_price) / 100,
+    monthly_orders = _monthly_orders + 1
     where users.email = user_mail;
 
 END

@@ -34,6 +34,7 @@ public class AuthenticationController {
         psfUser = userService.findUserByEmail(googleUser.getEmail());
         if (psfUser == null) {
             //System.out.println(googleUser);
+            userService.saveNewUser(googleUser);
             googleUser.setStatus("loggedin");
             return ResponseEntity.ok(googleUser);
         }

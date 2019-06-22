@@ -1,7 +1,7 @@
 package com.psf.psfrest.controllers;
 
 import com.psf.psfrest.model.OrderDetails;
-import com.psf.psfrest.service.OrderService;
+import com.psf.psfrest.service.IOrderService;
 import com.psf.psfrest.service.email.Mail;
 import it.ozimov.springboot.mail.service.exception.CannotSendEmailException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +19,17 @@ public class OrderController {
     private Mail mail;
 
     @Autowired
-    private OrderService orderService;
+    private IOrderService orderService;
 
     private String address;
 
     @GetMapping("/public/address")
-    public void setAddress(@RequestParam(name = "userAddress") String userAddress) {
+    public @ResponseBody void setAddress(@RequestParam(name = "userAddress") String userAddress) {
         this.address = userAddress;
     }
 
     @GetMapping("/auth/order")
-    public void order(@RequestBody List<OrderDetails> orderDetails) throws IOException, CannotSendEmailException {
+    public @ResponseBody void order(@RequestBody List<OrderDetails> orderDetails) throws IOException, CannotSendEmailException {
 
         for (OrderDetails orderDetail : orderDetails) {
             orderService.init(

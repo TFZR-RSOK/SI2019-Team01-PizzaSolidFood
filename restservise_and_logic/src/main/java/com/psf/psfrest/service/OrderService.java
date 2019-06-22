@@ -17,6 +17,7 @@ public class OrderService implements IOrderService {
     private int orderNum;
     private String additionName;
 
+    @Override
     public void init(String mail, String productName, String payment, int quantity, int orderNum, String additionName) {
         this.mail = mail;
         this.productName = productName;

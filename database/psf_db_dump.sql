@@ -60,7 +60,7 @@ CREATE TABLE `order` (
   UNIQUE KEY `ID_ORDER` (`ID_ORDER`),
   KEY `fk_order_products1_idx` (`products_ID_PROD`),
   CONSTRAINT `fk_order_products1` FOREIGN KEY (`products_ID_PROD`) REFERENCES `products` (`ID_PROD`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (11,16.99,'2019-06-20 00:00:00','paypal',1,222222,3),(12,20.70,'2019-06-20 00:00:00','paypal',2,222222,1);
+INSERT INTO `order` VALUES (57,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(58,12.35,'2019-06-22 00:00:00','paypal',1,1234,1),(59,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(60,12.35,'2019-06-22 00:00:00','paypal',1,1234,1),(61,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(62,12.35,'2019-06-22 00:00:00','paypal',1,1234,1),(63,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(64,12.35,'2019-06-22 00:00:00','paypal',1,1234,1),(65,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(66,12.35,'2019-06-22 00:00:00','paypal',1,1234,1);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -116,7 +116,6 @@ CREATE TABLE `order_has_additions` (
 
 LOCK TABLES `order_has_additions` WRITE;
 /*!40000 ALTER TABLE `order_has_additions` DISABLE KEYS */;
-INSERT INTO `order_has_additions` VALUES (11,3,2);
 /*!40000 ALTER TABLE `order_has_additions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,7 +182,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`ID_ORDERS`,`users_ID_USER`),
   UNIQUE KEY `ID_ORDERS` (`ID_ORDERS`),
   UNIQUE KEY `TOTAL_PRICE_UNIQUE` (`TOTAL_PRICE`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -192,7 +191,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,4,37.94,222222);
+INSERT INTO `orders` VALUES (18,5,28.34,1234),(19,5,56.68,1234),(20,5,85.02,1234),(21,5,113.36,1234),(22,5,141.70,1234);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,7 +243,7 @@ CREATE TABLE `users` (
   `MONTHLY_ORDERS` smallint(5) unsigned DEFAULT NULL,
   PRIMARY KEY (`ID_USER`),
   UNIQUE KEY `ID_USER` (`ID_USER`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -253,7 +252,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('Elijah','Agbabah',1,'ilijah.agbabah@tfzr.rs',2,'Jovana Popovica 29',69,8),('Nikolah','Turudijah',2,'nikolah.turudijah@tfzr.rs',1,'dorm',0,8),('Mihal','Kalamin',4,'kalamin.michal@gmail.com',1,NULL,0,21);
+INSERT INTO `users` VALUES ('Mihal','Kalamin',5,'kalamin.michal@gmail.com',0,NULL,4,21);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,7 +310,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `complete_order_procedure`(in order_
 BEGIN
     
     declare _points smallint;
-    declare _montly_orders smallint;
+    declare _monthly_orders smallint;
     declare _id_user bigint;
     declare _total_price double(9,2);
     declare total_order_price double(8,2);
@@ -330,15 +329,25 @@ BEGIN
         order_has_additions.additions_id_add = additions.id_add
         and
         `order`.ORDER_NUM = order_num;
-    
-    set _total_price = total_order_price + total_add_price;
    
+    if total_add_price is null then
+		set total_add_price = 0;
+	end if;
+   
+    set _total_price = total_order_price + total_add_price;
+    select total_add_price;
+    select total_order_price;
+    select _total_price;
+    
     insert into orders (USERS_ID_USER, TOTAL_PRICE, ORDERS_ORDER_NUM)
     values(_id_user, _total_price, order_num);
-    
+	
+    select users.points into _points from users where users.email = user_mail;
+    select users.monthly_orders into _monthly_orders from users where users.email = user_mail;
+
     update users
-    set points = ROUND(_total_price) / 100,
-    monthly_orders = monthly_orders + 1
+    set points = _points + ROUND(_total_price) / 100,
+    monthly_orders = _monthly_orders + 1
     where users.email = user_mail;
     
 END ;;
@@ -439,4 +448,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-21 19:18:38
+-- Dump completed on 2019-06-22 16:37:40

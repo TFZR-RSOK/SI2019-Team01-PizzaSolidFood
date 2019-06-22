@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.psd</groupId>
     <artifactId>psf-rest</artifactId>
-    <version>1.0.0.BETA</version>
+    <version>1.1.0.BETA</version>
     <name>psf-rest</name>
     <description>Pizza Solid Food</description>
     <packaging>war</packaging>
