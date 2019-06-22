@@ -148,4 +148,9 @@ public class Mail implements IMail {
     public void customerMsg(String subject, String name, String customerMail, String msg) throws UnsupportedEncodingException {
         mailWithoutTemplate(subject, name, customerMail, msg);
     }
+
+    @Override
+    public void newsletter(String customerMail) throws IOException, CannotSendEmailException {
+        mailWithTemplate("", customerMail, "Newsletter Subscription", "newsletter.ftl");
+    }
 }

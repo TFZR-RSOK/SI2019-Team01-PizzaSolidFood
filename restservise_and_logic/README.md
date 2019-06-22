@@ -180,3 +180,13 @@ JSON Body
 
 ``` 
 Returns: ```void```
+
+<hr>
+
+### */public/newsletter*
+
+**METHOD:** "GET"
+
+Params: ```String customerMail``` 
+
+Returns: ```void```

@@ -11,4 +11,5 @@ public interface IMail {
     void sendDowngrade(String userName, String email) throws IOException, CannotSendEmailException, URISyntaxException;
     void sendBillEmail(String email, int orderNum, String address) throws IOException, CannotSendEmailException, URISyntaxException;
     void customerMsg(String subject, String name, String customerMail, String msg) throws UnsupportedEncodingException;
+    void newsletter(String customerMail) throws IOException, CannotSendEmailException;
 }
