@@ -28,6 +28,7 @@
 <div>Bill info:</div>
 <div>${userName} ${userLastname}</div>
 <div>${userAddress}</div>
+<div>${orderTime}</div>
 <div>Total order price: ${totalPrice}</div>
 </body>
 </html>

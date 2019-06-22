@@ -74,12 +74,13 @@ public class Mail implements IMail {
         final Map<String, Object> modelObject = new HashMap<>();
         List<OrderWithAddition> ordersList = getOrdersList(orderNum);
 
-        modelObject.put("userAddress", "test adresa");
+        modelObject.put("userAddress", address);
         modelObject.put("products", ordersList);
         modelObject.put("userType", (ordersList.get(0).getUserType() == 1) ? true:false);
         modelObject.put("userName", ordersList.get(0).getUserName());
         modelObject.put("userLastname", ordersList.get(0).getUserLastName());
         modelObject.put("totalPrice", ordersList.get(0).getTotalPrice());
+        modelObject.put("orderTime", ordersList.get(0).getDate());
 
         Resource resource = new ClassPathResource("templates/psflogo.png");
 
