@@ -60,7 +60,7 @@ CREATE TABLE `order` (
   UNIQUE KEY `ID_ORDER` (`ID_ORDER`),
   KEY `fk_order_products1_idx` (`products_ID_PROD`),
   CONSTRAINT `fk_order_products1` FOREIGN KEY (`products_ID_PROD`) REFERENCES `products` (`ID_PROD`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,6 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (57,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(58,12.35,'2019-06-22 00:00:00','paypal',1,1234,1),(59,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(60,12.35,'2019-06-22 00:00:00','paypal',1,1234,1),(61,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(62,12.35,'2019-06-22 00:00:00','paypal',1,1234,1),(63,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(64,12.35,'2019-06-22 00:00:00','paypal',1,1234,1),(65,15.99,'2019-06-22 00:00:00','paypal',1,1234,2),(66,12.35,'2019-06-22 00:00:00','paypal',1,1234,1);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -182,7 +181,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`ID_ORDERS`,`users_ID_USER`),
   UNIQUE KEY `ID_ORDERS` (`ID_ORDERS`),
   UNIQUE KEY `TOTAL_PRICE_UNIQUE` (`TOTAL_PRICE`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,7 +190,6 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (18,5,28.34,1234),(19,5,56.68,1234),(20,5,85.02,1234),(21,5,113.36,1234),(22,5,141.70,1234);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,7 +250,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('Mihal','Kalamin',5,'kalamin.michal@gmail.com',0,NULL,4,21);
+INSERT INTO `users` VALUES ('Mihal','Kalamin',5,'kalamin.michal@gmail.com',0,NULL,6,22);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -448,4 +446,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-22 16:37:40
+-- Dump completed on 2019-06-22 16:59:27
