@@ -161,6 +161,8 @@ Returns: ```void```
 
 headers: Authorization Bearer Token
 
+headers: Content-type application/json
+
 Params ```void```
 
 JSON Body
