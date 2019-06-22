@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="fixed">
         <div class="container c2r1">
             <div class="title">
                 <img src="icon/pizza.svg" height="40px" width="40px">

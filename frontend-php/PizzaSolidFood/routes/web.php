@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/',['as' => 'home', function () {
-    return view('home');
-}]);
+Route::get('/', 'HomeDefaultController@home');
 
 Route::get('/signup',['as' => 'signup', function () {
     return view('signup');
@@ -21,6 +19,10 @@ Route::get('/signup',['as' => 'signup', function () {
 
 Route::get('/profile',['as' => 'profile', function () {
     return view('profile');
+}]);
+
+Route::get('/product',['as' => 'product', function () {
+    return view('product');
 }]);
 
 Route::get('/signout','Signout@signout');

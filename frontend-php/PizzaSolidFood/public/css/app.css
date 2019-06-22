@@ -417,11 +417,15 @@ body #grid-start-page #myCanvas {
   }
 }
 
+body header.fixed {
+  position: fixed;
+}
+
 body header {
   background-color: white;
   width: 100%;
-  position: fixed;
   z-index: 10000;
+  border-bottom: 1px solid #bbbbbb;
   box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.75);
 }
 
@@ -1160,6 +1164,73 @@ body #profile-content .profile .sign-out {
   transition: 0.5s;
 }
 
+body #product-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: calc(100vh - 70px);
+}
+
+body #product-content .product-img {
+  background-image: url(/../img/menu/2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body #product-content .info {
+  position: relative;
+  padding: 50px 20px 50px 20px;
+}
+
+body #product-content .info h2 {
+  color: #27282A;
+}
+
+body #product-content .info h2.pizza-name {
+  font-family: Pacifico;
+}
+
+body #product-content .info h2.info-title {
+  color: #e8af00;
+}
+
+body #product-content .info select {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+body #product-content .info select:focus {
+  outline: none;
+}
+
+body #product-content .info input[type=text] {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 15px;
+  padding-left: 5px;
+  border: none;
+  border: 1px solid #27282A;
+}
+
+body #product-content .info a.order-btn {
+  width: 150px;
+  height: 40px;
+  text-decoration: none;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+  background-color: #e8af00;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  font-weight: bold;
+}
+
 body footer {
   width: 100%;
   background-color: #27282A;
@@ -1273,6 +1344,14 @@ body footer .container .copyright h4 {
   }
 }
 
+@media (max-width: 1000px) {
+  body #product-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 1500px;
+  }
+}
+
 @media (max-width: 980px) {
   body header .c2r1 {
     grid-template-columns: 4fr 1fr;
@@ -1344,6 +1423,10 @@ body footer .container .copyright h4 {
   body footer .container .content .right-side * {
     text-align: center;
   }
+
+  body #product-content {
+    height: 1200px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -1386,12 +1469,20 @@ body footer .container .copyright h4 {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
   }
+
+  body #product-content {
+    height: 1200px;
+  }
 }
 
 @media (max-width: 700px) {
   body #our-team .container .team {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
+  }
+
+  body #product-content {
+    height: 1200px;
   }
 }
 
