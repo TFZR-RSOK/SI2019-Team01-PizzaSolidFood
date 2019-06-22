@@ -112,38 +112,56 @@
                 <article>
                     <img src="../img/menu/1.jpg" alt="pizza image">
                     <h2>Quattro Stagioni</h2>
-                    <p>tomato sauce <br> mozzarella <br> ham <br> black olives <br> mushrooms <br> artichoke peas <br> salami <br> eggs</p>
-                    <input type="button" value="Order">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="order-btn" href="">Order</a>
                 </article>
                 <article>
                     <img src="../img/menu/2.jpg" alt="pizza image">
                     <h2>Margherita</h2>
-                    <p>sliced buffalo <br> mozzarella from Campania<br> basil <br> extra virgin <br> olive oil </p>
-                    <input type="button" value="Order">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="order-btn" href="">Order</a>
                 </article>
                 <article>
                     <img src="../img/menu/3.jpg" alt="pizza image">
                     <h2>Hawaii</h2>
-                    <p>ham <br> pineapple </p>
-                    <input type="button" value="Order">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="order-btn" href="">Order</a>
                 </article>
                 <article>
                     <img src="../img/menu/4.jpg" alt="pizza image">
                     <h2>Garlic Fingers</h2>
-                    <p>melted butter <br> garlic <br> bacon </p>
-                    <input type="button" value="Order">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="order-btn" href="">Order</a>
                 </article>
                 <article>
                     <img src="../img/menu/5.jpg" alt="pizza image">
                     <h2>Meat Feast</h2>
-                    <p>tomato sauce <br> mozzarella <br> minced meat <br> Maltese sausage <br> other meat </p>
-                    <input type="button" value="Order">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="order-btn" href="">Order</a>
                 </article>
                 <article>
                     <img src="../img/menu/6.jpg" alt="pizza image">
                     <h2>Peperoni</h2>
-                    <p>tomato sauce <br> mozzarella <br> peperoni </p>
-                    <input type="button" value="Order">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="order-btn" href="">Order</a>
                 </article>
             </div>
         </div>

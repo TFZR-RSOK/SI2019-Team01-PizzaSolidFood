@@ -37,7 +37,18 @@
             <div class="info">
             <div class="info-block"><h5>Email: {{ Session::get('email') }}  </h5></div>
             
-            <div class="info-block"><h5>User type: {{ Session::get('userType') }}  </h5></div>
+            <div class="info-block"><h5>
+            
+            User type:
+            @if(Session::get('userType') == 0)
+             Normal 
+            @elseif(Session::get('userType') == 1)
+             Premium
+            @elseif(Session::get('userType') == 2)
+             Admin
+            @endif
+            
+            </h5></div>
             <div class="info-block"><h5>Points: {{ Session::get('Points') }}  </h5></div>
             <a class="sign-out" href="{{url('/signout')}}">Sign Out</a>
             @else
