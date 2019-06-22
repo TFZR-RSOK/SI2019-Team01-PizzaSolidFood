@@ -36,8 +36,8 @@ public class ProductsController {
         return products;
     }
 
-    @GetMapping("/public/product/{productName}")
-    public Products getProduct(@PathVariable String productName) {
+    @GetMapping("/public/product")
+    public Products getProduct(@RequestParam(name = "productName") String productName) {
         return productsService.getProduct(productName);
     }
 

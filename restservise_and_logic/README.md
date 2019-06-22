@@ -129,7 +129,7 @@ Returns:
 <hr>
 
 
-### */public/contact/*
+### */public/contact*
 
 **METHOD:** "GET"
 
@@ -143,7 +143,7 @@ Params:
 Returns: ```void```
 <hr>
 
-### */public/address/*
+### */public/address*
 
 **METHOD:** "GET"
 
@@ -155,7 +155,7 @@ Params
 Returns: ```void```
 <hr>
 
-### */auth/order/*
+### */auth/order*
 
 **METHOD:** "GET"
 
