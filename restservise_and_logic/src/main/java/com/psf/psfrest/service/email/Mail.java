@@ -85,9 +85,10 @@ public class Mail implements IMail {
         Resource resource = new ClassPathResource("templates/psflogo.png");
 
         emailService.send(email, "bill.ftl", modelObject, inlinePicture(resource.getFile()));
+        ordersList.clear();
     }
 
-    List<OrderWithAddition> getOrdersList(int orderNum) {
+    private List<OrderWithAddition> getOrdersList(int orderNum) {
         List<OrderWithoutAddition> orderWithoutAdditions = ordersService.getOrdersWithoutAdditionWith(orderNum);
         List<OrderWithAddition> orderWithAdditions = ordersService.getOrdersWithAdditionWith(orderNum);
         Iterator<OrderWithAddition> orderWithAdditionIterator = orderWithAdditions.listIterator();
