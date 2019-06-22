@@ -98,6 +98,7 @@ Returns:
 ```
 
 <hr>
+
 ### */public/additions*
 
 **METHOD:** "POST"
