@@ -6,10 +6,10 @@ body{
         height: calc(100vh - 70px);
 
         .product-img{
-            background-image: url(/../img/menu/2.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            img{
+                width: 100%;
+                height: 100%;
+            }
         }
         
         .info{

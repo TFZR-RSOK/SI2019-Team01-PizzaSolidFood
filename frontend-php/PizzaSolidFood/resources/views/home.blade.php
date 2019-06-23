@@ -113,13 +113,14 @@
                     @foreach($pizza as $pizzas)
                         <article>
                             @php $filename = $pizzas['productName'] . '.jpg' @endphp
+                            
                             <img src="{{ asset('storage/' .$filename) }}" alt="pizza image">
                             <h2> {{ $pizzas['productName'] }} </h2>
                             <br>
                             <br>
                             <br>
                             <br>
-                            <a class="order-btn" href="">Order</a>
+                            <a class="order-btn" href=" {{ url('/product/' .$pizzas['idProd']) }}">Order</a>
                         </article>
                     @endforeach
                 @endif

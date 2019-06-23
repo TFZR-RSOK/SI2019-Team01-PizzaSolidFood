@@ -21,9 +21,7 @@ Route::get('/profile',['as' => 'profile', function () {
     return view('profile');
 }]);
 
-Route::get('/product',['as' => 'product', function () {
-    return view('product');
-}]);
+Route::get('/product/{id}', 'ProductPageController@productPage');
 
 
 
