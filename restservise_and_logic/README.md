@@ -78,11 +78,11 @@ Returns:
 ```
 <hr>
 
-### */public/product*
+### */public/product/PARAMS*
 
 **METHOD:** "GET"
 
-Params: ```String productName ```
+Params: ```int productId ```
 
 Returns:
 ```json

@@ -36,9 +36,9 @@ public class ProductsController {
         return products;
     }
 
-    @GetMapping("/public/product")
-    public Products getProduct(@RequestParam(name = "productName") String productName) throws IOException {
-        Products product = productsService.getProduct(productName);
+    @GetMapping("/public/product/{productId}")
+    public Products getProduct(@PathVariable("productId") int productId) throws IOException {
+        Products product = productsService.getProduct(productId);
         Resource resource = new ClassPathResource(product.getImgPath());
         product.setImage(Base64.getEncoder().encodeToString(Files.readAllBytes(resource.getFile().toPath())));
         return product;
