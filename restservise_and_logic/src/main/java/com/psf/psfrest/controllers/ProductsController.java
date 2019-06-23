@@ -37,8 +37,11 @@ public class ProductsController {
     }
 
     @GetMapping("/public/product")
-    public Products getProduct(@RequestParam(name = "productName") String productName) {
-        return productsService.getProduct(productName);
+    public Products getProduct(@RequestParam(name = "productName") String productName) throws IOException {
+        Products product = productsService.getProduct(productName);
+        Resource resource = new ClassPathResource(product.getImgPath());
+        product.setImage(Base64.getEncoder().encodeToString(Files.readAllBytes(resource.getFile().toPath())));
+        return product;
     }
 
     @PostMapping("/public/additions")

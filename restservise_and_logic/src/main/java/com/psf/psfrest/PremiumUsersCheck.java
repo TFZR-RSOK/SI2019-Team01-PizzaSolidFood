@@ -61,7 +61,6 @@ public class PremiumUsersCheck implements Runnable {
                     e.printStackTrace();
                 }
             }
-            System.out.println("Mail send");
         }
         try {
             Thread.sleep(premiumUsersCheckInterval * 60000);
