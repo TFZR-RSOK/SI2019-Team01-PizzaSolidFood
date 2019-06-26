@@ -16,10 +16,10 @@ public class Utils {
     }
 
     public User getUserCredentials(String jsonString) {
-       user.setName(JsonPath.read(jsonString, "$.name"));
-       user.setLastName(JsonPath.read(jsonString, "$.lastname"));
-       user.setEmail(JsonPath.read(jsonString, "$.email"));
+        user.setName(JsonPath.read(jsonString, "$.name"));
+        user.setLastName(JsonPath.read(jsonString, "$.lastname"));
+        user.setEmail(JsonPath.read(jsonString, "$.email"));
 
-       return user;
+        return user;
     }
 }

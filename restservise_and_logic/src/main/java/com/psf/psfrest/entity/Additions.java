@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class Additions {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name="ID_ADD")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_ADD")
     private int id;
 
     @Column(name = "ADD_NAME")

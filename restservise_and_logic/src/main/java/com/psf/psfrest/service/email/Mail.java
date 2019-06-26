@@ -53,10 +53,10 @@ public class Mail implements IMail {
 
     private void mailWithoutTemplate(String subject, String name, String customerMail, String msg) throws UnsupportedEncodingException {
         final Email email = DefaultEmail.builder()
-                .from(new InternetAddress(customerMail, subject))
+                .from(new InternetAddress("psf.no.reply@gmail.com", subject))
                 .to(Lists.newArrayList(new InternetAddress("psf.no.reply@gmail.com", subject)))
                 .subject(subject)
-                .body("Sender name: " + name + "\nMessage:\n" + msg)
+                .body("Sender name: " + name + "\nSender email: " + customerMail + "\nMessage:\n" + msg)
                 .encoding("UTF-8").build();
 
         emailService.send(email);
@@ -76,7 +76,7 @@ public class Mail implements IMail {
 
         modelObject.put("userAddress", address);
         modelObject.put("products", ordersList);
-        modelObject.put("userType", (ordersList.get(0).getUserType() == 1) ? true:false);
+        modelObject.put("userType", (ordersList.get(0).getUserType() == 1) ? true : false);
         modelObject.put("userName", ordersList.get(0).getUserName());
         modelObject.put("userLastname", ordersList.get(0).getUserLastName());
         modelObject.put("totalPrice", ordersList.get(0).getTotalPrice());

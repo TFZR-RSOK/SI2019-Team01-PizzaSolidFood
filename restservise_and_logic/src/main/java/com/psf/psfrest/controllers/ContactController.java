@@ -18,8 +18,7 @@ public class ContactController {
     private IMail mail;
 
     @GetMapping("/public/contact")
-    public @ResponseBody
-    void contact(@RequestParam(name = "subject") String subject,
+    public @ResponseBody void contact(@RequestParam(name = "subject") String subject,
                  @RequestParam(name = "name") String name,
                  @RequestParam(name = "customerMail") String customerMail,
                  @RequestParam(name = "msg") String msg) throws UnsupportedEncodingException {

@@ -53,8 +53,7 @@ public class PremiumUsersCheck implements Runnable {
                 } catch (CannotSendEmailException | IOException e) {
                     e.printStackTrace();
                 }
-            }
-            else {
+            } else {
                 try {
                     givePremiumAccount();
                 } catch (CannotSendEmailException | IOException e) {
