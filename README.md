@@ -14,8 +14,7 @@ Shodno dogovoru tima, studentu **Kalamin Mihai Kristian – SI 04/16** - [@Krist
 
 Na osnovu zahteva studenta **Ilija Agbaba – SI 22/16** - [@IlijaAgbaba](https://github.com/IlijaAgbaba "@IlijaAgbaba") tim odustaje od razvoja Android dela aplikacije, a spomenutom studentu su dodeljeni sledeći zadaci u razvoju aplikacije :
 - Izrada chatbot-a
-- Formiranje izgleda e-mail-a prilikom porudžbine, dobijanja i guvljenja premium naloga
-- Prosleđivanje sadržaja iz baze podataka na stranice proizvoda (hrane).
+- Formiranje izgleda e-mail-a prilikom porudžbine, dobijanja i gubljenja premium naloga
 
 Shodno izloženom, **odobreno je restruktuiranje projekta i samog repozitorijuma**.
 
