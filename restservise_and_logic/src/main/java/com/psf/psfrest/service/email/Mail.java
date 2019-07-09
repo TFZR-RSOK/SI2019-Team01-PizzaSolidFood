@@ -21,7 +21,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -91,15 +90,9 @@ public class Mail implements IMail {
     private List<OrderWithAddition> getOrdersList(int orderNum) {
         List<OrderWithoutAddition> orderWithoutAdditions = ordersService.getOrdersWithoutAdditionWith(orderNum);
         List<OrderWithAddition> orderWithAdditions = ordersService.getOrdersWithAdditionWith(orderNum);
-        Iterator<OrderWithAddition> orderWithAdditionIterator = orderWithAdditions.listIterator();
-        Iterator<OrderWithoutAddition> orderWithoutAdditionIterator = orderWithoutAdditions.listIterator();
 
-        while (orderWithAdditionIterator.hasNext()) {
-            while (orderWithoutAdditionIterator.hasNext()) {
-                if (orderWithAdditionIterator.next().getIdOrder() == orderWithoutAdditionIterator.next().getIdOrder()) {
-                    orderWithoutAdditionIterator.remove();
-                }
-            }
+        for (OrderWithAddition orderWithAddition : orderWithAdditions) {
+            orderWithoutAdditions.removeIf(j -> j.getIdOrder() == orderWithAddition.getIdOrder());
         }
 
         for (OrderWithoutAddition orderWithoutAddition : orderWithoutAdditions) {

@@ -1,12 +1,12 @@
 package com.psf.psfrest.repository;
 
-import com.psf.psfrest.model.OrderDetails;
+import com.psf.psfrest.entity.Order;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface ProceduresRepository extends CrudRepository<OrderDetails, Integer> {
+public interface ProceduresRepository extends CrudRepository<Order, Integer> {
     @Transactional
     @Procedure(procedureName = "order_procedure")
     void order(@Param("email") String mail,

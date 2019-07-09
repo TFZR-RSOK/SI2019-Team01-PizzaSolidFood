@@ -143,7 +143,7 @@ Params:
 Returns: ```void```
 <hr>
 
-### */public/address*
+### */auth/address*
 
 **METHOD:** "GET"
 
@@ -157,7 +157,7 @@ Returns: ```void```
 
 ### */auth/order*
 
-**METHOD:** "GET"
+**METHOD:** "POST"
 
 headers: Authorization Bearer Token
 
@@ -169,12 +169,13 @@ JSON Body
 ```json
 [
     {
-      "mail": "joh.doe@gmail.com"
+      "mail": "joh.doe@gmail.com",
+      "userType": 0 or 1,
       "productName": "Margherita",
       "payment": "paypal",
       "quantity": 1,
       "orderNum": 1234,
-      "additionName": "Bacon" or ""
+      "additionName": "Bacon" or "none"
     },
     ...
 ]

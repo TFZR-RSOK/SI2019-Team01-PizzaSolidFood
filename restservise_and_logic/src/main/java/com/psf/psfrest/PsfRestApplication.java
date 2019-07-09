@@ -15,5 +15,7 @@ public class PsfRestApplication extends SpringBootServletInitializer {
 		Thread premium = new Thread(ctx.getBean(PremiumUsersCheck.class));
 		premium.start();
 
+		Thread emailThread = new Thread(ctx.getBean(MailQueueThread.class));
+		emailThread.start();
 	}
 }

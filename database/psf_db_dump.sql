@@ -42,6 +42,33 @@ INSERT INTO `additions` VALUES (1,'Bacon',0.50),(2,'Cheese',0.25),(3,'Mushroom',
 UNLOCK TABLES;
 
 --
+-- Table structure for table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comment` (
+  `ID_COMMENT` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `ORDER_NUM_COMMENT` int(11) NOT NULL,
+  `EMAIL_COMMENT` varchar(254) NOT NULL,
+  `MSG` varchar(1000) NOT NULL,
+  `stars` int(11) NOT NULL,
+  PRIMARY KEY (`ID_COMMENT`),
+  UNIQUE KEY `ID_COMMENT` (`ID_COMMENT`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comment`
+--
+
+LOCK TABLES `comment` WRITE;
+/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `order`
 --
 
@@ -60,7 +87,7 @@ CREATE TABLE `order` (
   UNIQUE KEY `ID_ORDER` (`ID_ORDER`),
   KEY `fk_order_products1_idx` (`products_ID_PROD`),
   CONSTRAINT `fk_order_products1` FOREIGN KEY (`products_ID_PROD`) REFERENCES `products` (`ID_PROD`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,9 +206,8 @@ CREATE TABLE `orders` (
   `TOTAL_PRICE` double(9,2) NOT NULL,
   `ORDERS_ORDER_NUM` int(11) NOT NULL,
   PRIMARY KEY (`ID_ORDERS`,`users_ID_USER`),
-  UNIQUE KEY `ID_ORDERS` (`ID_ORDERS`),
-  UNIQUE KEY `TOTAL_PRICE_UNIQUE` (`TOTAL_PRICE`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  UNIQUE KEY `ID_ORDERS` (`ID_ORDERS`)
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +276,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('Mihal','Kalamin',5,'kalamin.michal@gmail.com',0,NULL,6,22);
+INSERT INTO `users` VALUES ('Mihal','Kalamin',5,'kalamin.michal@gmail.com',1,NULL,5,54);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -446,4 +472,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-22 16:59:27
+-- Dump completed on 2019-07-09 11:31:59

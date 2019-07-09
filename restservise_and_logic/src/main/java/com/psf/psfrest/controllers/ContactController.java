@@ -1,32 +1,28 @@
 package com.psf.psfrest.controllers;
 
-import com.psf.psfrest.service.email.IMail;
-import it.ozimov.springboot.mail.service.exception.CannotSendEmailException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.psf.psfrest.model.MailDetails;
+import com.psf.psfrest.utils.Globals;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import static com.psf.psfrest.MailQueueThread.mailQueue;
 
 @RestController
+@CrossOrigin
 public class ContactController {
 
-    @Autowired
-    private IMail mail;
-
     @GetMapping("/public/contact")
-    public @ResponseBody void contact(@RequestParam(name = "subject") String subject,
-                 @RequestParam(name = "name") String name,
-                 @RequestParam(name = "customerMail") String customerMail,
-                 @RequestParam(name = "msg") String msg) throws UnsupportedEncodingException {
-        mail.customerMsg(subject, name, customerMail, msg);
+    @ResponseStatus(HttpStatus.OK)
+    public void contact(@RequestParam(name = "subject") String subject,
+                                              @RequestParam(name = "name") String name,
+                                              @RequestParam(name = "customerMail") String customerMail,
+                                              @RequestParam(name = "msg") String msg) {
+        mailQueue.offer(new MailDetails(customerMail, subject, name, msg, Globals.MailEnum.CUSTOMER_MSG));
     }
 
     @GetMapping("/public/newsletter")
-    public @ResponseBody void newsletter(@RequestParam(name = "customerMail") String customerMail) throws IOException, CannotSendEmailException {
-        mail.newsletter(customerMail);
+    @ResponseStatus(HttpStatus.OK)
+    public void newsletter(@RequestParam(name = "customerMail") String customerMail) {
+        mailQueue.offer(new MailDetails(customerMail, Globals.MailEnum.NEWSLETTER));
     }
 }

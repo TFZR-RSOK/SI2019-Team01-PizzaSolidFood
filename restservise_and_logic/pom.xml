@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.psd</groupId>
     <artifactId>psf-rest</artifactId>
-    <version>1.1.0.BETA</version>
+    <version>1.5.1.RELEASE</version>
     <name>psf-rest</name>
     <description>Pizza Solid Food</description>
     <packaging>war</packaging>
@@ -26,6 +26,7 @@
         </distributionManagement>-->
     <dependencies>
 
+        <!-- https://github.com/ozimov/spring-boot-email-tools -->
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>spring-boot-email-core</artifactId>
