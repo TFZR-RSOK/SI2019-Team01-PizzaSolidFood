@@ -21,6 +21,10 @@ Route::get('/profile',['as' => 'profile', function () {
     return view('profile');
 }]);
 
+Route::get('/shopping-cart',['as' => 'shopping-cart', function () {
+    return view('cart');
+}]);
+
 Route::get('/product/{id}', 'ProductPageController@productPage');
 
 
@@ -29,6 +33,7 @@ Route::get('/signout','Signout@signout');
 
 Route::get('/json', 'GuzzleController@getRemoteData');
 
+Route::get('/addItem/pId/{id}/pName/{name}/payment/{payment}/quantity/{quan}/orderNum/{ordernum}/adName/{adname}', 'AddItemController@addItem');
 
 Auth::routes();
 

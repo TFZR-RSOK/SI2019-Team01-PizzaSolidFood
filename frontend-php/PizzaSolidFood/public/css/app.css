@@ -1047,7 +1047,7 @@ body #our-location .title h2 {
 body #register-content {
   width: 100%;
   height: 100vh;
-  background-color: #F0F0F0;
+  background-color: white;
   display: grid;
   grid-template-rows: 1fr;
   justify-content: center;
@@ -1058,7 +1058,8 @@ body #register-content form {
   background-color: white;
   width: 400px;
   padding: 60px 0px 60px 0px;
-  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.2);
 }
 
 body #register-content form * {
@@ -1086,14 +1087,12 @@ body #register-content form .gmail-btn {
   font-size: 15px;
   font-weight: bold;
   display: block;
-  box-shadow: 4px 3px 3px -2px rgba(0, 0, 0, 0.4);
   transition: 0.5s;
 }
 
 body #register-content form .gmail-btn:hover {
-  background-color: white;
-  color: #757575;
-  border: 1px solid #757575;
+  background-color: #757575;
+  color: white;
 }
 
 body #profile-content {
@@ -1226,6 +1225,66 @@ body #product-content .info a.order-btn {
   position: absolute;
   bottom: 50px;
   right: 50px;
+  font-weight: bold;
+}
+
+body #cart-content {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+body #cart-content table.list {
+  border-collapse: initial;
+  border-spacing: 20px;
+  width: 800px;
+}
+
+body #cart-content table.list .titles {
+  width: 800px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.2);
+}
+
+body #cart-content table.list .titles th {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 200px;
+  color: #757575;
+}
+
+body #cart-content table.list .item {
+  width: 800px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.2);
+}
+
+body #cart-content table.list .item th {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 200px;
+  font-weight: normal;
+}
+
+body #cart-content table.list .item th#name-color {
+  color: #e8af00;
+  font-weight: bold;
+}
+
+body #cart-content table.list .item th#payment-color {
+  color: #01308A;
   font-weight: bold;
 }
 

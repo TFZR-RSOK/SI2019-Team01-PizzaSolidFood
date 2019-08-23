@@ -75,6 +75,7 @@ class SocialAuthController extends Controller
                 session(['email' => $email]);
                 session(['Points' => $points]);
                 session(['status' => $status]);
+                session(['userId' => 1]);
                 
                 
                 

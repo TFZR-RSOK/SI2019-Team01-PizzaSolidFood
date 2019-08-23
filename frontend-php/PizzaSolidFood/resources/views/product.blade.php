@@ -56,13 +56,29 @@
             <br>
             <h2 class="info-title">Quantity:</h2>
             <br>
-            <input type="text" value="0">
+            <input type="text" value="0" name="quantity" id="quantity">
             <br>
             <br>
             <h2 class="info-title">Prize: </h2>
             <h2 class="pizza-name">{{ $product['productPrice'] }}</h2>
             <br>
-            <a class="order-btn" href="">ORDER</a>
+            @php 
+
+            $pId = $product['idProd'];
+            $pName = $product['productName'];
+            $payment = 'PayPal';
+            $quan = 1;
+            $orderNum = 123123;
+            $adName = $addition['additionName'];
+
+            @endphp
+            <a class="order-btn" href="
+            @if(Session::get('status') == 'Logged')
+            {{ url('addItem/pId/' .$pId .'/pName/' .$pName .'/payment/' .$payment .'/quantity/' .$quan .'/orderNum/' .$orderNum .'/adName/' .$adName) }}
+            @else
+            {{ url('/')}}
+            @endif
+            ">ORDER</a>
         </div>
     </section>
 
