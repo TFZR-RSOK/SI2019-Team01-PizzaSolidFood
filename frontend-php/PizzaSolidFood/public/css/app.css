@@ -417,22 +417,26 @@ body #grid-start-page #myCanvas {
   }
 }
 
+body header.fixed {
+  position: fixed;
+}
+
 body header {
   background-color: white;
   width: 100%;
-  position: fixed;
   z-index: 10000;
+  border-bottom: 1px solid #bbbbbb;
   box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.75);
 }
 
 body header .container {
-  width: 70%;
+  width: 95%;
   margin: auto;
 }
 
 body header .c2r1 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 30% 70%;
   grid-template-rows: 1fr;
   height: 70px;
 }
@@ -681,8 +685,7 @@ body #menu-content .container .title h2 {
 
 body #menu-content .container .menu {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
 }
 
@@ -711,7 +714,7 @@ body #menu-content .container .menu article p {
   color: white;
 }
 
-body #menu-content .container .menu article input[type=button] {
+body #menu-content .container .menu article .order-btn {
   position: absolute;
   bottom: 0px;
   width: 100%;
@@ -723,12 +726,16 @@ body #menu-content .container .menu article input[type=button] {
   font-weight: 300;
   cursor: pointer;
   font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 50px;
+  text-align: center;
   border: 2px solid #FFD34A;
   transition: 0.5s;
   border-radius: 5px;
 }
 
-body #menu-content .container .menu article input[type=button]:hover {
+body #menu-content .container .menu article .order-btn:hover {
   background-color: #FFD34A;
   color: white;
 }
@@ -1040,7 +1047,7 @@ body #our-location .title h2 {
 body #register-content {
   width: 100%;
   height: 100vh;
-  background-color: #F0F0F0;
+  background-color: white;
   display: grid;
   grid-template-rows: 1fr;
   justify-content: center;
@@ -1051,7 +1058,8 @@ body #register-content form {
   background-color: white;
   width: 400px;
   padding: 60px 0px 60px 0px;
-  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.2);
 }
 
 body #register-content form * {
@@ -1064,7 +1072,10 @@ body #register-content form .icon {
   background-image: url(/../img/gmail.svg);
 }
 
-body #register-content form input[type=submit] {
+body #register-content form .gmail-btn {
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
   margin-top: 40px;
   width: 200px;
   height: 40px;
@@ -1076,14 +1087,205 @@ body #register-content form input[type=submit] {
   font-size: 15px;
   font-weight: bold;
   display: block;
-  box-shadow: 4px 3px 3px -2px rgba(0, 0, 0, 0.4);
   transition: 0.5s;
 }
 
-body #register-content form input[type=submit]:hover {
+body #register-content form .gmail-btn:hover {
+  background-color: #757575;
+  color: white;
+}
+
+body #profile-content {
+  width: 100%;
+  height: 100vh;
+  background-color: #F0F0F0;
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+body #profile-content .profile {
   background-color: white;
+  width: 400px;
+  padding: 40px 0px 40px 0px;
+  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.4);
+}
+
+body #profile-content .profile * {
+  margin: 5px auto 5px auto;
+}
+
+body #profile-content .profile .info {
+  margin: 30px 0px 30px;
+}
+
+body #profile-content .profile .info .info-block {
+  width: 90%;
+  height: 50px;
+  color: #27282A;
+  background-color: #dbdbdb;
+  padding: 0px 10px 0px 10px;
+  border-radius: 10px;
+}
+
+body #profile-content .profile .icon {
+  height: 120px;
+  width: 120px;
+  background-image: url(/../img/user.svg);
+}
+
+body #profile-content .profile h2 {
+  width: 100%;
+  text-align: center;
+  color: #27282A;
+}
+
+body #profile-content .profile h5 {
+  line-height: 50px;
+}
+
+body #profile-content .profile .sign-out {
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  margin-top: 40px;
+  width: 200px;
+  height: 40px;
+  background-color: #e8af00;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+  transition: 0.5s;
+}
+
+body #product-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: calc(100vh - 70px);
+}
+
+body #product-content .product-img img {
+  width: 100%;
+  height: 100%;
+}
+
+body #product-content .info {
+  position: relative;
+  padding: 50px 20px 50px 20px;
+}
+
+body #product-content .info h2 {
+  color: #27282A;
+}
+
+body #product-content .info h2.pizza-name {
+  font-family: Pacifico;
+}
+
+body #product-content .info h2.info-title {
+  color: #e8af00;
+}
+
+body #product-content .info select {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+body #product-content .info select:focus {
+  outline: none;
+}
+
+body #product-content .info input[type=text] {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 15px;
+  padding-left: 5px;
+  border: none;
+  border: 1px solid #27282A;
+}
+
+body #product-content .info a.order-btn {
+  width: 150px;
+  height: 40px;
+  text-decoration: none;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+  background-color: #e8af00;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  font-weight: bold;
+}
+
+body #cart-content {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+body #cart-content table.list {
+  border-collapse: initial;
+  border-spacing: 20px;
+  width: 800px;
+}
+
+body #cart-content table.list .titles {
+  width: 800px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.2);
+}
+
+body #cart-content table.list .titles th {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 200px;
   color: #757575;
-  border: 1px solid #757575;
+}
+
+body #cart-content table.list .item {
+  width: 800px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.2);
+}
+
+body #cart-content table.list .item th {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 200px;
+  font-weight: normal;
+}
+
+body #cart-content table.list .item th#name-color {
+  color: #e8af00;
+  font-weight: bold;
+}
+
+body #cart-content table.list .item th#payment-color {
+  color: #01308A;
+  font-weight: bold;
 }
 
 body footer {
@@ -1191,11 +1393,19 @@ body footer .container .copyright h4 {
 
 @media (max-width: 1300px) {
   body header .container {
-    width: 90%;
+    width: 95%;
   }
 
   body footer .container {
     width: 80%;
+  }
+}
+
+@media (max-width: 1000px) {
+  body #product-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 1500px;
   }
 }
 
@@ -1270,6 +1480,10 @@ body footer .container .copyright h4 {
   body footer .container .content .right-side * {
     text-align: center;
   }
+
+  body #product-content {
+    height: 1200px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -1312,12 +1526,20 @@ body footer .container .copyright h4 {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
   }
+
+  body #product-content {
+    height: 1200px;
+  }
 }
 
 @media (max-width: 700px) {
   body #our-team .container .team {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
+  }
+
+  body #product-content {
+    height: 1200px;
   }
 }
 

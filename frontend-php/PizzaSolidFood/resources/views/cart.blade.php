@@ -29,11 +29,39 @@
         </div>
     </header>
     
-    <section id="register-content">
-    <form action="" method="">
-        <div class="icon"></div>
-        <a class="gmail-btn" href="{{ url('/google') }}">Sign up with Google</a>
-    </form>
+    <section id="cart-content">
+        <table class="list">
+        <tr class="titles">
+            <th>
+            Name
+            </th>
+            <th>
+            Quantity
+            </th>
+            <th>
+            Addition
+            </th>
+            <th>
+            Payment method
+            </th>
+        </tr>
+        @foreach(Session::get('pizzaOrder') as $pizzaItem)
+        <tr class="item">
+            <th id="name-color">
+            {{$pizzaItem['productName']}}
+            </th>
+            <th>
+            {{$pizzaItem['quantity']}}
+            </th>
+            <th>
+            {{$pizzaItem['additionName']}}
+            </th>
+            <th id="payment-color">
+            {{$pizzaItem['payment']}}
+            </th>
+        </tr>
+        @endforeach
+        </table>
     </section>
 
     
