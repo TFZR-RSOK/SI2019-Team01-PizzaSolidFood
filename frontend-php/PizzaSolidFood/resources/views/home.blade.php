@@ -26,6 +26,10 @@
                     <li><a href="#gallery-content">Gallery</a></li>
                     <li><a href="#our-story">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    @if(Session::get('status') == 'Logged')
+                    <li><a href=" {{ url('/shopping-cart') }} "><i class="fas fa-shopping-cart"></i></a></li>
+                    @else
+                    @endif
                     <li><a href="
                     
                     @if(Session::get('status') == 'Logged')

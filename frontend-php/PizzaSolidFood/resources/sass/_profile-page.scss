@@ -2,18 +2,32 @@ body{
     #profile-content{
         width: 100%;
         height: 100vh;
-        background-color: $custom-lighter-grey;
+        background-color: white;
         display: grid;
         grid-template-rows: 1fr;
         justify-content: center;
         align-items: center;
+        .login-warning{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            width: 500px;
+            background-color: $custom-red;
+            border-radius: 10px;
+            color: white;
+            a{
+                color: white;
+            }
+        }
         .profile{
             background-color: white;
             width: 400px;
             padding: 40px 0px 40px 0px;
-            -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.4);
-            -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.4);
-            box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.4);     
+            border-radius: 10px;
+            -webkit-box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.2);
+            box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.2);     
             *{
                 margin: 5px auto 5px auto;
             }
@@ -23,7 +37,7 @@ body{
                     width: 90%;
                     height: 50px;
                     color: $custom-grey;
-                    background-color: $custom-lighter-grey2;
+                    background-color: $custom-lighter-grey;
                     padding: 0px 10px 0px 10px;
                     border-radius: 10px;
                     

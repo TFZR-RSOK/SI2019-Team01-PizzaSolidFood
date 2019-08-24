@@ -30,38 +30,53 @@
     </header>
     
     <section id="cart-content">
-        <table class="list">
-        <tr class="titles">
-            <th>
-            Name
-            </th>
-            <th>
-            Quantity
-            </th>
-            <th>
-            Addition
-            </th>
-            <th>
-            Payment method
-            </th>
-        </tr>
-        @foreach(Session::get('pizzaOrder') as $pizzaItem)
-        <tr class="item">
-            <th id="name-color">
-            {{$pizzaItem['productName']}}
-            </th>
-            <th>
-            {{$pizzaItem['quantity']}}
-            </th>
-            <th>
-            {{$pizzaItem['additionName']}}
-            </th>
-            <th id="payment-color">
-            {{$pizzaItem['payment']}}
-            </th>
-        </tr>
-        @endforeach
-        </table>
+        @if(Session::get('status') == 'Logged')
+        <div class="shopping-cart">
+            <div class="div cart-header">
+                <h3>Your shopping cart</h3>
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <table class="list">
+            <tr class="titles">
+                <th>
+                Name
+                </th>
+                <th>
+                Quantity
+                </th>
+                <th>
+                Addition
+                </th>
+            </tr>
+            @if(Session::get('pizzaOrder'))
+            @foreach(Session::get('pizzaOrder') as $pizzaItem)
+            <tr class="item">
+                <th id="name-color">
+                {{$pizzaItem['productName']}}
+                </th>
+                <th>
+                {{$pizzaItem['quantity']}}
+                </th>
+                <th>
+                {{$pizzaItem['additionName']}}
+                </th>
+            </tr>
+            @endforeach
+            @else
+            <tr class="item">
+                <th>No items to display</th>
+            </tr>
+            @endif
+            </table>
+            <a class="add-more" href="">+</a>
+            <br>
+            <a class="cart-order" href="">Order</a>
+        </div>
+        @else
+        <div class="login-warning">
+            <h4>Please <a href="{{ url('/signup') }}">login</a> to view this page</h4>
+        </div>
+        @endif
     </section>
 
     
