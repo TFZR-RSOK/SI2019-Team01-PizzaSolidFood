@@ -25,6 +25,7 @@ Route::get('/shopping-cart',['as' => 'shopping-cart', function () {
     return view('cart');
 }]);
 
+
 Route::get('/product/{id}', 'ProductPageController@productPage');
 
 

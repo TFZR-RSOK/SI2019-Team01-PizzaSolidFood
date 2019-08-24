@@ -30,8 +30,8 @@
     </header>
     
     <section id="profile-content">
+        @if(Session::get('status') == 'Logged')
         <div class="profile">
-            @if(Session::get('status') == 'Logged')
             <div class="icon"></div>
             <h2> {{ Session::get('userName') }} {{ Session::get('lastName') }} </h2>
             <div class="info">
@@ -51,10 +51,13 @@
             </h5></div>
             <div class="info-block"><h5>Points: {{ Session::get('Points') }}  </h5></div>
             <a class="sign-out" href="{{url('/signout')}}">Sign Out</a>
-            @else
-            <h2> You are not logged in. </h2>
-            @endif
-            </div>
+            
+        </div>
+        @else
+        <div class="login-warning">
+            <h4>Please <a href="{{ url('/signup') }}">login</a> to view this page</h4>
+        </div>
+        @endif
         </div>
     </section>
 
