@@ -4,11 +4,10 @@ Laravel / PHP, HTML, SASS (CSS), jQuery.
 
 <h2>Update 27/08/2019</h2>
 
-- Added endpoint auth/address
+- <div class="text-yellow">Added</div> endpoint auth/address
 - Added endpoint auth/order
+- Added UX update
+- Added order confirmation page (disabled)
 - Fixed order bugs
 - Fixed responsive UI
-- UX update
-- Added order confirmation page (disabled)
-
 
