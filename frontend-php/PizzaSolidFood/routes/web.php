@@ -25,6 +25,9 @@ Route::get('/shopping-cart',['as' => 'shopping-cart', function () {
     return view('cart');
 }]);
 
+Route::get('/shopping-cart/order', 'OrderController@order');
+
+Route::get('/products', 'ProductsDefaultController@products');
 
 Route::get('/product/{id}', 'ProductPageController@productPage');
 

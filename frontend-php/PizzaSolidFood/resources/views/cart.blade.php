@@ -68,9 +68,13 @@
             </tr>
             @endif
             </table>
-            <a class="add-more" href="">+</a>
+            <a class="add-more" href="{{ url('/products') }}">+</a>
             <br>
-            <a class="cart-order" href="">Order</a>
+            <form class="adress" action=" {{ url('/shopping-cart/order') }}" method="get">
+                <input type="text" class="input-adress" name="psyaddress" placeholder="Please, type your physical adress">
+                <br>
+                <input type="submit" value="Order">
+            </form>
         </div>
         @else
         <div class="login-warning">

@@ -17,10 +17,13 @@ class AddItemController extends Controller
         $adName = $adname;
 
         $userId = Session::get('userId');
+        $userMail = Session::get('email');
+        $userType = Session::get('userType');
+        
         
         Session::push('pizzaOrder', [
-            'mail'=> "johndoe@gmail.com",
-            'userType'=> 0,
+            'mail'=> $userMail,
+            'userType'=> $userType,
             'productName'=> $productName,
             'payment'=> $ppayment,
             'quantity'=> $quant,

@@ -661,7 +661,7 @@ body #our-team .container .team h3 {
 
 body #menu-content {
   position: relative;
-  padding: 50px 0px;
+  padding: 150px 0px;
 }
 
 body #menu-content .bg-image {
@@ -1126,21 +1126,6 @@ body #profile-content {
   align-items: center;
 }
 
-body #profile-content .login-warning {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  width: 500px;
-  background-color: #F44336;
-  border-radius: 10px;
-  color: white;
-}
-
-body #profile-content .login-warning a {
-  color: white;
-}
-
 body #profile-content .profile {
   background-color: white;
   width: 400px;
@@ -1381,6 +1366,70 @@ body #cart-content .shopping-cart .cart-order {
   width: 90%;
   height: 50px;
   background-color: #F44336;
+  border-radius: 10px;
+  margin: 0px auto 20px auto;
+  font-size: 20px;
+  color: white;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+body #order-content {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+body #order-content .shopping-cart-order {
+  background-color: #388E3C;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.2);
+}
+
+body #order-content .shopping-cart-order .cart-header {
+  height: 100px;
+  background-color: #388E3C;
+  color: white;
+  margin-bottom: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+body #order-content .shopping-cart-order .cart-header h3 {
+  line-height: 100px;
+  margin-left: 20px;
+  height: inherit;
+  float: left;
+  width: 200px;
+}
+
+body #order-content .shopping-cart-order .cart-header svg {
+  font-size: 50px;
+  float: right;
+  height: 100px;
+  line-height: 50px;
+  margin-right: 20px;
+}
+
+body #order-content .shopping-cart-order .message {
+  padding: 20px;
+  background-color: #388E3C;
+  color: white;
+}
+
+body #order-content .shopping-cart-order .cart-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 50px;
+  background-color: #FFD34A;
   border-radius: 10px;
   margin: 0px auto 20px auto;
   font-size: 20px;

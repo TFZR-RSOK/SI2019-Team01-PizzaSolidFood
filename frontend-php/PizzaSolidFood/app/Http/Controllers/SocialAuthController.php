@@ -50,6 +50,7 @@ class SocialAuthController extends Controller
 
             /** @var string */
             $jwt = $values['id_token'];
+            session(['token' => $jwt]);
             //echo $jwt;
             try {
                 $client = new \GuzzleHttp\Client();

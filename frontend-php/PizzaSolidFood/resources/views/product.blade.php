@@ -39,24 +39,10 @@
             <br>
             <h2 class="pizza-name">{{ $product['productName'] }}</h2>
             <br>
-            <h2 class="info-title">Addition:</h2>
-            <br>
-            <div class="custom-select" style="width:200px;">
-            <select>
-                <option value="">Select addition:</option>
-                @foreach($additions as $addition)
-                <option value=""> {{ $addition['additionName'] }}</option>
-                @endforeach
-            </select>
-            </div>
             <br>
             <h2 class="info-title">Description:</h2>
             <br>
             <h4> {{ $product['productDescription'] }} </h4>
-            <br>
-            <h2 class="info-title">Quantity:</h2>
-            <br>
-            <input type="text" value="0" name="quantity" id="quantity">
             <br>
             <br>
             <h2 class="info-title">Prize: </h2>
@@ -69,7 +55,7 @@
             $payment = 'PayPal';
             $quan = 1;
             $orderNum = 123123;
-            $adName = $addition['additionName'];
+            $adName = 'none';
 
             @endphp
             <a class="order-btn" href="
