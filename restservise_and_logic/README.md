@@ -145,9 +145,9 @@ Returns: ```void```
 
 ### */auth/address*
 
-**METHOD:** "GET"
+**METHOD:** "POST"
 
-Params
+JSON Body
 ```
     String userAddress
 ```

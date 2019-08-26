@@ -21,9 +21,9 @@ public class OrderController {
 
     private String address;
 
-    @GetMapping("/auth/address")
+    @PostMapping("/auth/address")
     @ResponseStatus(HttpStatus.CREATED)
-    public void setAddress(@RequestParam(name = "userAddress") String userAddress) {
+    public void setAddress(@RequestBody String userAddress) {
         this.address = userAddress;
     }
 
