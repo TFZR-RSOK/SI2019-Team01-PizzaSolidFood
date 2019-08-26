@@ -2,7 +2,7 @@
 This is a folder for all of the files regarding frontend of the application.
 Laravel / PHP, HTML, SASS (CSS), jQuery.
 
-Update 27/08/2019
+<h2>Update 27/08/2019</h2>
 
 - Added endpoint auth/address
 - Added endpoint auth/order
