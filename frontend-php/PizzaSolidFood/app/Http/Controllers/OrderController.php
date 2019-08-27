@@ -42,7 +42,10 @@ class OrderController extends Controller
         //    ['body' => $json]
         //);
 
-
+        if(empty($request->psyaddress)){
+            return redirect()->to('/shopping-cart');
+        }
+        else{
         $paddress = $request->psyaddress;
         $token = Session::get('token');
 
@@ -77,5 +80,6 @@ class OrderController extends Controller
         Session::flush('pizzaOrder');
         
         return view('order');
+        }
     }
 }

@@ -20,4 +20,8 @@ Laravel / PHP, HTML, SASS (CSS), jQuery.
 - <b>Enabled</b> order confirmation page 
 - <b><i>Fixed</i></b> fixed mail
 
+<h2>Update 28/08/2019 (BETA)</h2>
 
+- <b>Added</b> order restrictions
+- <b>Added</b> address warning message
+- <b>Added</b> new order mail template

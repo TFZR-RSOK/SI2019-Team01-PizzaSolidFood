@@ -70,11 +70,19 @@
             </table>
             <a class="add-more" href="{{ url('/products') }}">+</a>
             <br>
+            @if(Session::get('pizzaOrder'))
             <form class="adress" action=" {{ url('/shopping-cart/order') }}" method="get">
-                <input type="text" class="input-adress" name="psyaddress" placeholder="Please, type your physical adress">
+                <input type="text" class="input-address" name="psyaddress" placeholder="Please, type your physical address">
                 <br>
-                <input type="submit" value="Order">
+                <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <strong>Error:</strong> Please type your physical address.
+                </div>
+                <br>
+                <input class="cart-order" type="submit" value="Order">
             </form>
+            @else
+            @endif
         </div>
         @else
         <div class="login-warning">

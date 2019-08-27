@@ -104,6 +104,26 @@ body{
                 font-weight: bold;
                 text-decoration: none;
             }
+            .input-address{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 90%;
+                height: 50px;
+                background-color: white;
+                border: 1px solid $custom-lighter-grey2;
+                border-radius: 10px;
+                margin: 10px auto 10px auto;
+                font-size: 15px;
+                color: $google-grey;
+                line-height: 40px;
+                text-align: center;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            .input-address:focus{
+                outline: none;
+            }
             .cart-order{
                 display: flex;
                 align-items: center;
@@ -119,7 +139,28 @@ body{
                 text-align: center;
                 font-weight: bold;
                 text-decoration: none;
+                border: none;
             }
+            .alert {
+                padding: 20px;
+                background-color: #f44336;
+                color: white;
+              }
+              
+              .closebtn {
+                margin-left: 15px;
+                color: white;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+              }
+              
+              .closebtn:hover {
+                color: black;
+              }
         }
     }
 }

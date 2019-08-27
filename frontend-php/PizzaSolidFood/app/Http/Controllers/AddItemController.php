@@ -23,6 +23,8 @@ class AddItemController extends Controller
         $userType = Session::get('userType');
         
         
+        
+
         Session::push('pizzaOrder', [
             'mail'=> $userMail,
             'userType'=> $userType,
