@@ -12,10 +12,10 @@ class ProductPageController extends Controller
         //echo $id;
 
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'http://localhost:8080/psf-rest/public/product/' .$productid);
+        $response = $client->request('GET', 'http://localhost:8080/public/product/' .$productid);
         $products = $response->getBody()->getContents();
 
-        $response2 = $client->request('POST', 'http://localhost:8080/psf-rest/public/additions');
+        $response2 = $client->request('POST', 'http://localhost:8080/public/additions');
         $additions = $response2->getBody()->getContents();
 
         

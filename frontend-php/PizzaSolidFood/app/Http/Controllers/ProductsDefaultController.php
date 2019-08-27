@@ -12,7 +12,7 @@ class ProductsDefaultController extends Controller
     public function products()
     {
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'http://localhost:8080/psf-rest/public/products');
+        $response = $client->request('POST', 'http://localhost:8080/public/products');
         $products = $response->getBody()->getContents();
         //print_r($products);
 

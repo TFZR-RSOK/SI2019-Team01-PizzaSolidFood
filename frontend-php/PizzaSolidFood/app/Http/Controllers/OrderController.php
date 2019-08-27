@@ -12,42 +12,11 @@ class OrderController extends Controller
 {
     public function order(Request $request)
     {
-        $paddress = $request->psyaddress;
-        $token = Session::get('token');
-
-        $adressarray = array(['userAddress' => $paddress]);
-        $adressjson = json_encode($adressarray);
-
-
-        //dd($adressjson);
-        $json = json_encode(Session::get('pizzaOrder'));
-        
-        //dd($json);
-        //dd($adressjson);
-        
-
-    
-        $client = new Client([
-            'headers' => [
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer '.$token
-            ]
-        ]);
-        
-        $response = $client->post('http://localhost:8080/psf-rest/auth/address', 
-            ['body' => $adressjson]
-        );
-        
-        $response2 = $client->post('http://localhost:8080/psf-rest/auth/order', 
-            ['body' => $json]
-        );
-
-
         //$paddress = $request->psyaddress;
         //$token = Session::get('token');
 //
         //$adressarray = array(['userAddress' => $paddress]);
-     //$adressjson = json_encode($adressarray);
+        //$adressjson = json_encode($adressarray);
 //
 //
         ////dd($adressjson);
@@ -65,15 +34,48 @@ class OrderController extends Controller
         //    ]
         //]);
         //
-        //$response = $client->get('http://localhost:8080/auth/address?userAddress='.$paddress);
-       //
+        //$response = $client->post('http://localhost:8080/auth/address', 
+        //    ['body' => $adressjson]
+        //);
         //
         //$response2 = $client->post('http://localhost:8080/auth/order', 
         //    ['body' => $json]
         //);
+
+
+        $paddress = $request->psyaddress;
+        $token = Session::get('token');
+
+        //$adressarray = array(['userAddress' => $paddress]);
+        //$adressjson = json_encode($adressarray);
+
+
         
+
+        //dd($adressjson);
+        $json = json_encode(Session::get('pizzaOrder'));
+        
+        //dd($json);
+        //dd($adressjson);
+        
+
     
+        $client = new Client([
+            'headers' => [
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer '.$token
+            ]
+        ]);
         
-        //return view('order');
+        $response = $client->get('http://localhost:8080/auth/address?userAddress='.$paddress);
+       
+        
+        $response2 = $client->post('http://localhost:8080/auth/order', 
+            ['body' => $json]
+        );
+        
+        Session::flush('pizzaOrder');
+        
+        return view('order');
     }
 }

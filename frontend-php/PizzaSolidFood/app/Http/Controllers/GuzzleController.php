@@ -12,7 +12,7 @@ class GuzzleController extends Controller
         
 
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'http://localhost:8088/psf-rest/auth/login');
+        $response = $client->request('GET', 'http://localhost:8088/auth/login');
 
         echo $response->getStatusCode(); # 200
         echo $response->getHeaderLine('content-type'); # 'application/json; charset=utf8'

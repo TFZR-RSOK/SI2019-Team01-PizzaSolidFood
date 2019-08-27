@@ -13,7 +13,9 @@ class AddItemController extends Controller
         $productName = $name;
         $ppayment = $payment;
         $quant = $quan;
-        $orderNum = $ordernum;
+        $orderNum = Session::get('sessionNum');
+        
+        
         $adName = $adname;
 
         $userId = Session::get('userId');
@@ -27,9 +29,11 @@ class AddItemController extends Controller
             'productName'=> $productName,
             'payment'=> $ppayment,
             'quantity'=> $quant,
-            'orderNum'=> 1234,
+            'orderNum'=> $orderNum,
             'additionName'=> $adName
         ]); 
+
+        
 
         //$user_details = session('pizzaOrder');
         //dd($user_details);

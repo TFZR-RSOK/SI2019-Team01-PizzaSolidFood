@@ -54,7 +54,7 @@ class SocialAuthController extends Controller
             //echo $jwt;
             try {
                 $client = new \GuzzleHttp\Client();
-                $response = $client->request('POST', 'http://localhost:8080/psf-rest/auth/login', [
+                $response = $client->request('POST', 'http://localhost:8080/auth/login', [
                     'headers' => ['Authorization' => 'Bearer '.$jwt]
                 ]);
 
@@ -69,6 +69,7 @@ class SocialAuthController extends Controller
                 $usertype =  $json['userType'];
                 $points =  $json['points'];
                 $status = 'Logged';
+                $sessionID = rand(1,1000000);
 
                 session(['userName' => $username]);
                 session(['lastName' => $lastname]);
@@ -77,6 +78,7 @@ class SocialAuthController extends Controller
                 session(['Points' => $points]);
                 session(['status' => $status]);
                 session(['userId' => 1]);
+                session(['sessionNum' => $sessionID]);
                 
                 
                 
