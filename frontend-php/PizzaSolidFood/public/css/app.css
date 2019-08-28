@@ -911,33 +911,7 @@ body #about-us .container .content .about-us p {
 }
 
 body #contact {
-  position: relative;
-}
-
-body #contact .bg-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -999;
-  width: 100%;
-  height: 100%;
-  background-image: url(/../img/contact.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-body #contact .mask {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  width: inherit;
-  height: inherit;
   background-color: #27282A;
-  z-index: -888;
-  opacity: 0.8;
 }
 
 body #contact .title {
@@ -989,33 +963,9 @@ body #contact .container form input[type=text] {
   margin: 5px 0px;
   padding-left: 10px;
   color: #FFD34A;
-  background-color: transparent;
-  border: 2px solid #FFD34A;
-}
-
-body #contact .container form input[type=text]::-webkit-input-placeholder,
-body #contact .container form textarea::-webkit-input-placeholder {
-  color: rgba(255, 211, 74, 0.5);
-}
-
-body #contact .container form input[type=text]::-moz-placeholder,
-body #contact .container form textarea::-moz-placeholder {
-  color: rgba(255, 211, 74, 0.5);
-}
-
-body #contact .container form input[type=text]:-ms-input-placeholder,
-body #contact .container form textarea:-ms-input-placeholder {
-  color: rgba(255, 211, 74, 0.5);
-}
-
-body #contact .container form input[type=text]::-ms-input-placeholder,
-body #contact .container form textarea::-ms-input-placeholder {
-  color: rgba(255, 211, 74, 0.5);
-}
-
-body #contact .container form input[type=text]::placeholder,
-body #contact .container form textarea::placeholder {
-  color: rgba(255, 211, 74, 0.5);
+  background-color: #37383b;
+  border-radius: 10px;
+  border: none;
 }
 
 body #contact .container form textarea {
@@ -1023,8 +973,10 @@ body #contact .container form textarea {
   width: 100%;
   resize: none;
   color: #FFD34A;
-  background-color: transparent;
-  border: 2px solid #FFD34A;
+  background-color: #37383b;
+  border-radius: 10px;
+  border: none;
+  margin: 5px 0px;
 }
 
 body #contact .container form input[type=text]:focus,
@@ -1042,6 +994,7 @@ body #contact .container input[type=button] {
   background-color: #FFD34A;
   color: white;
   transition: 0.5s;
+  border-radius: 10px;
 }
 
 body #contact .container input[type=button]:hover {
@@ -1431,14 +1384,14 @@ body #order-content {
 }
 
 body #order-content .shopping-cart-order {
-  background-color: #388E3C;
+  background-color: #4CAF50;
   border-radius: 10px;
   box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.2);
 }
 
 body #order-content .shopping-cart-order .cart-header {
   height: 100px;
-  background-color: #388E3C;
+  background-color: #4CAF50;
   color: white;
   margin-bottom: 20px;
   border-top-left-radius: 10px;
@@ -1463,7 +1416,7 @@ body #order-content .shopping-cart-order .cart-header svg {
 
 body #order-content .shopping-cart-order .message {
   padding: 20px;
-  background-color: #388E3C;
+  background-color: #4CAF50;
   color: white;
 }
 
@@ -1524,6 +1477,13 @@ body footer .container .content .left-side input[type=email] {
   border: none;
   padding-left: 10px;
   font-size: 15px;
+  border-radius: 10px;
+  background-color: #37383b;
+  color: #FFD34A;
+}
+
+body footer .container .content .left-side input[type=email]:focus {
+  outline: none;
 }
 
 body footer .container .content .left-side input[type=button] {
@@ -1534,6 +1494,7 @@ body footer .container .content .left-side input[type=button] {
   color: white;
   border: none;
   background-color: #FFD34A;
+  border-radius: 10px;
 }
 
 body footer .container .content .middle h2 {

@@ -76,7 +76,7 @@
                 <br>
                 <div class="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                    <strong>Error:</strong> Please type your physical address.
+                    <strong>Warning:</strong> Please type your physical address.
                 </div>
                 <br>
                 <input class="cart-order" type="submit" value="Order">

@@ -47,7 +47,7 @@
                             <br>
                             <br>
                             <br>
-                            <a class="order-btn" href=" {{ url('/product/' .$pizzas['idProd']) }}">Order</a>
+                            <a class="order-btn" href=" {{ url('/product/' .$pizzas['idProd']) }}">Add to cart</a>
                         </article>
                     @endforeach
                 @endif

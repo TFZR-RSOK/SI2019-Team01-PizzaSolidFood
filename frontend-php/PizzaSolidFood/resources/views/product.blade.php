@@ -62,9 +62,9 @@
             @if(Session::get('status') == 'Logged')
             {{ url('addItem/pId/' .$pId .'/pName/' .$pName .'/payment/' .$payment .'/quantity/' .$quan .'/orderNum/' .$orderNum .'/adName/' .$adName) }}
             @else
-            {{ url('/')}}
+            {{ url('/signup')}}
             @endif
-            ">ORDER</a>
+            ">Add</a>
         </div>
     </section>
 

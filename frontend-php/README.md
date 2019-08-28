@@ -18,10 +18,18 @@ Laravel / PHP, HTML, SASS (CSS), jQuery.
 - <b>Added</b> order num generator
 - <b>Added</b> new endpoints
 - <b>Enabled</b> order confirmation page 
-- <b><i>Fixed</i></b> fixed mail
+- <b><i>Fixed</i></b> mail
 
 <h2>Update 28/08/2019 (BETA)</h2>
+
+<h3>Update #1</h3>
 
 - <b>Added</b> order restrictions
 - <b>Added</b> address warning message
 - <b>Added</b> new order mail template
+
+<h3>Update #2</h3>
+
+- <b>Redesigned</b> website UI in some sections
+- <b>Added</b> custom css values
+- <b><i>Fixed</i></b> mail template

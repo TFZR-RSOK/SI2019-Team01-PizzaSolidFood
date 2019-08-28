@@ -72,39 +72,7 @@
             </div>
         </div>
     </section>
-    <section id="our-team">
-        <div class="container">
-            <div class="title">
-                <h2>Our Team</h2>
-            </div>
-            <div class="team">
-                <div class="first-member">
-                    <img src="../img/home/First.png" alt="">
-                    <h3>Arman Kibee</h3>
-                </div>
-                <div class="second-member">
-                    <img src="../img/home/Second.png" alt="">
-                    <h3>Jamey Giovannini</h3>
-                </div>
-                <div class="third-member">
-                    <img src="../img/home/Third.png" alt="">
-                    <h3>Hervey Troutman</h3>
-                </div>
-                <div class="fourth-member">
-                    <img src="../img/home/Fourth.png" alt="">
-                    <h3>Tamarra Garber</h3>
-                </div>
-                <div class="fifth-member">
-                    <img src="../img/home/Fifth.png" alt="">
-                    <h3>Rosana Finley</h3>
-                </div>
-                <div class="sixth-member">
-                    <img src="../img/home/Sixth.png" alt="">
-                    <h3>Salome Calkins</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <section id="menu-content">
         <div class="bg-image"></div>
         <div class="mask"></div>
@@ -124,7 +92,7 @@
                             <br>
                             <br>
                             <br>
-                            <a class="order-btn" href=" {{ url('/product/' .$pizzas['idProd']) }}">Order</a>
+                            <a class="order-btn" href=" {{ url('/product/' .$pizzas['idProd']) }}">Add to cart</a>
                         </article>
                     @endforeach
                 @endif
@@ -164,6 +132,40 @@
                 <div class="our-story">
                     <h2>Our Story</h2>
                     <p>Italian cuisine restaurant Pizza Solid Food is located in the heart of Belgrade, in Dorćol district, the old city neighborhood known for its multicultural atmosphere. Restaurant owner himself has been actively engaged in decorating the restaurant interior and the smallest details were taken into account, wrought iron wine cellar, painted walls, a small gallery with a few tables, discreet home lighting lamps, comfortable chairs, so your stay would be as pleasant as possible. Restaurant terrace offers all possibilities for a pleasant stay and relaxation during and after the working day, and refreshments to all those who have decided to spend the day sightseeing Belgrade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-team">
+        <div class="container">
+            <div class="title">
+                <h2>Our Team</h2>
+            </div>
+            <div class="team">
+                <div class="first-member">
+                    <img src="../img/home/First.png" alt="">
+                    <h3>Arman Kibee</h3>
+                </div>
+                <div class="second-member">
+                    <img src="../img/home/Second.png" alt="">
+                    <h3>Jamey Giovannini</h3>
+                </div>
+                <div class="third-member">
+                    <img src="../img/home/Third.png" alt="">
+                    <h3>Hervey Troutman</h3>
+                </div>
+                <div class="fourth-member">
+                    <img src="../img/home/Fourth.png" alt="">
+                    <h3>Tamarra Garber</h3>
+                </div>
+                <div class="fifth-member">
+                    <img src="../img/home/Fifth.png" alt="">
+                    <h3>Rosana Finley</h3>
+                </div>
+                <div class="sixth-member">
+                    <img src="../img/home/Sixth.png" alt="">
+                    <h3>Salome Calkins</h3>
                 </div>
             </div>
         </div>
@@ -209,7 +211,6 @@
             </div>
         </div>
     </section>
-    
     <section id="our-location">
         <div class="title">
             <div class="container">
@@ -218,6 +219,7 @@
         </div>
         <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=zrenjanin&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.emojilib.com">emojilib.com</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div>
     </section>
+    
     <footer>
         <div class="container">
             <div class="content">
